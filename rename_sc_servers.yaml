@@ -3,6 +3,6 @@
   tasks:
     - name: Changing Name
       hostname: 
-        name: "{{lb_name}}"
+        name: ancsc0cmslb
         debug:
           msg: "Changing Name"
