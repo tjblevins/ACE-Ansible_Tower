@@ -1,0 +1,7 @@
+---
+-	name: Rename Load Balancer
+	hosts:  '{{lb_ip}}'
+	tasks:
+	-	name: Rename Load Balancer
+		hostname: 
+			name: '{{lb_name}}'
