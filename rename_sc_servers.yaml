@@ -3,4 +3,6 @@
   tasks:
     - name: Changing Name
       hostname: 
-        name: ancsc0cmslb
+        name: "{{lb_name}}"
+    - name: Setting Name Preservation
+      command: sed -i '$ a preserve_hostname: true' /etc/cloud/cloud.cfg
