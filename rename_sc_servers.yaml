@@ -1,5 +1,8 @@
----
+- name: Rename LB
   hosts: "{{lb_ip}}"
   tasks:
-     hostname: 
+    - name: Changing Name
+      hostname: 
         name: "{{lb_name}}"
+        debug:
+          msg: "Changing Name"
