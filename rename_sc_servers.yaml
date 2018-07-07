@@ -4,5 +4,3 @@
     - name: Changing Name
       hostname: 
         name: ancsc0cmslb
-        debug:
-          msg: "Changing Name"
