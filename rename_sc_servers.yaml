@@ -15,3 +15,37 @@
       async: 0
       poll: 0
       ignore_errors: true
+- name: Rename WWW
+  hosts: "{{www_ip}}"
+  tasks:
+    - name: Changing Name
+      hostname: 
+        name: "{{www_name}}"
+    - name: Setting Name Preservation
+      lineinfile:
+        path: /etc/cloud/cloud.cfg
+        regexp: '^# vim'
+        insertafter: '^# vim'
+        line: 'preserve_hostname: true'
+    - name: Restart Server
+      command: /sbin/shutdown -r +1
+      async: 0
+      poll: 0
+      ignore_errors: true
+- name: Rename DB
+  hosts: "{{db_ip}}"
+  tasks:
+    - name: Changing Name
+      hostname: 
+        name: "{{db_name}}"
+    - name: Setting Name Preservation
+      lineinfile:
+        path: /etc/cloud/cloud.cfg
+        regexp: '^# vim'
+        insertafter: '^# vim'
+        line: 'preserve_hostname: true'
+    - name: Restart Server
+      command: /sbin/shutdown -r +1
+      async: 0
+      poll: 0
+      ignore_errors: true
