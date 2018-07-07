@@ -5,4 +5,8 @@
       hostname: 
         name: "{{lb_name}}"
     - name: Setting Name Preservation
-      command: sed -i '$ a preserve_hostname: true' /etc/cloud/cloud.cfg
+      lineinfile:
+      	path: /etc/cloud/cloud.cfg
+      	regexp: '^# vim'
+      	insertafter: '^# vim'
+      	line: 'preserve_hostname: true'
