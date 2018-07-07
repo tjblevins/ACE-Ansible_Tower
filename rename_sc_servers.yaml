@@ -1,5 +1,4 @@
 ---
-- name: Rename Load Balancer
   hosts: '{{lb_ip}}'
   tasks:
      hostname: 
