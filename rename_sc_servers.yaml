@@ -1,5 +1,5 @@
 ---
-  hosts: '{{lb_ip}}'
+  hosts: "{{lb_ip}}"
   tasks:
      hostname: 
-        name: '{{lb_name}}'
+        name: "{{lb_name}}"
