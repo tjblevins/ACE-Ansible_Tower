@@ -9,13 +9,5 @@
     replace:
       path: /etc/httpd/conf.d/"{{lab_code}}"-cms.conf
       regex: "LABCODE"
-      replace: "{{lab_code}}"      
-  - name: Update CMSLBIP
-    replace:
-      path: /etc/httpd/conf.d/"{{lab_code}}"-cms.conf
-      regex: "CMSLBIP"
-      replace: "'172.32.3.219'"
-  - name: Restart HTTPD
-    service:
-      name: httpd
-      state: restarted
+      replace: "{{lab_code}}"
+      backup: yes
