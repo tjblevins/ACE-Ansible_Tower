@@ -1,5 +1,5 @@
 <VirtualHost *:80>
-  ServerName cms.INIT.acmesitedepot.com
+  ServerName cms.LABCODE.acmesitedepot.com
 
   <IfModule mod_proxy_ajp.c>
       ProxyRequests Off
@@ -7,14 +7,14 @@
       ProxyPreserveHost On
       ProxyVia On
 
-      <Proxy balancer://cms.INIT>
-        BalancerMember http://IPADDRESS:80
+      <Proxy balancer://cms.LABCODE>
+        BalancerMember http://CMSLBIP:80
         ProxySet lbmethod=bybusyness
       </Proxy>
       <Location />
         Order allow,deny
         Allow from all
-        ProxyPass balancer://cms.INIT/ stickysession=JSESSIONID
+        ProxyPass balancer://cms.LABCODE/ stickysession=JSESSIONID
       </Location>
 
   </IfModule>
