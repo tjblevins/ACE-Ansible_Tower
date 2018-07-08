@@ -1,0 +1,22 @@
+<VirtualHost *:80>
+  ServerName cms.INIT.acmesitedepot.com
+
+  <IfModule mod_proxy_ajp.c>
+      ProxyRequests Off
+      ProxyTimeout 300
+      ProxyPreserveHost On
+      ProxyVia On
+
+      <Proxy balancer://cms.INIT>
+        BalancerMember http://IPADDRESS:80
+        ProxySet lbmethod=bybusyness
+      </Proxy>
+      <Location />
+        Order allow,deny
+        Allow from all
+        ProxyPass balancer://cms.INIT/ stickysession=JSESSIONID
+      </Location>
+
+  </IfModule>
+</VirtualHost>
+
