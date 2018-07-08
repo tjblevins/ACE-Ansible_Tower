@@ -1,33 +1,33 @@
-- name: Update LB Zabbix Config
+- name: Update LB Zabbix Config and Restart Service
   hosts: "{{lb_ip}}"
   tasks:
-  - name: Update Zabbix Config
-      template:
-        src: zabbix_agentd.conf
-        dest: /etc/zabbix/zabbix_agentd.conf
-  - name: Restart Zabbix
-      service:
-        name: zabbix-agent
-        state: restarted
-- name: Update WWW Zabbix Config
+  - name: Update LB Zabbix Config
+    template:
+      src: zabbix_agentd.conf
+      dest: /etc/zabbix/zabbix_agentd.conf
+  - name: Restart LB Zabbix Agent
+    service:
+      name: zabbix-agent
+      state: restarted
+- name: Update WWW Zabbix Config and Restart Service
   hosts: "{{www_ip}}"
   tasks:
-  - name: Update Zabbix Config
-      template:
-        src: zabbix_agentd.conf
-        dest: /etc/zabbix/zabbix_agentd.conf
-  - name: Restart Zabbix
-      service:
-        name: zabbix-agent
-        state: restarted
-- name: Update DB Zabbix Config
+  - name: Update WWW Zabbix Config
+    template:
+      src: zabbix_agentd.conf
+      dest: /etc/zabbix/zabbix_agentd.conf
+  - name: Restart WWW Zabbix Agent
+    service:
+      name: zabbix-agent
+      state: restarted
+- name: Update DB Zabbix Config and Restart Service
   hosts: "{{db_ip}}"
   tasks:
-  - name: Update Zabbix Config
-      template:
-        src: zabbix_agentd.conf
-        dest: /etc/zabbix/zabbix_agentd.conf
-  - name: Restart Zabbix
-      service:
-        name: zabbix-agent
-        state: restarted
+  - name: Update DB Zabbix Config
+    template:
+      src: zabbix_agentd.conf
+      dest: /etc/zabbix/zabbix_agentd.conf
+  - name: Restart DB Zabbix Agent
+    service:
+      name: zabbix-agent
+      state: restarted
