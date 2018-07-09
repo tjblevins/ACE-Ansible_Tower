@@ -26,7 +26,7 @@
       path: /etc/cloud/cloud.cfg
       regexp: '^# vim'
       insertafter: '^# vim'
-        line: 'preserve_hostname: true'
+      line: 'preserve_hostname: true'
   - name: Restart Server
     command: /sbin/shutdown -r +1
     async: 0
