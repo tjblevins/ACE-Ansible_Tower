@@ -1,8 +1,8 @@
 - name: Rename Windows Server
   hosts: "{{ip}}"
   tasks:
-    - name: Changing Name
-      win_hostname:
-        name: "{{name}}"
-    - name: Reboot Server
+  - name: Changing Name
+    win_hostname:
+      name: "{{name}}"
+  - name: Reboot Server
       win_reboot:
