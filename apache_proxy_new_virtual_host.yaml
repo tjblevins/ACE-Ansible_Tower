@@ -9,4 +9,3 @@
     replace:
       path: /etc/httpd/conf.d/sc0-cms.conf
       regex: "LABCODE"
-      replace: '\sc0\g'
