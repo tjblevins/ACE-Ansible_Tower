@@ -4,4 +4,4 @@
   tasks:
   - name: Reboot
     win_reboot:
-    when: win_hostname.reboot_required
+
