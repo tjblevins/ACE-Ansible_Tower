@@ -7,6 +7,11 @@
       dest: /etc/httpd/conf.d/{{lab_code}}-cms.conf
   - name: Update LABCODE
     replace:
-      path: /etc/httpd/conf.d/sc0-cms.conf
+      path: /etc/httpd/conf.d/{{lab_code}}-cms.conf
       regexp: "LABCODE"
       replace: "{{lab_code}}"
+  - name: Update CMSLBIP
+    replace:
+      path: /etc/httpd/conf.d/{{lab_code}}-cms.conf
+      regexp: "CMSLBIP"
+      replace: "{{cms_lb_ip}}"
