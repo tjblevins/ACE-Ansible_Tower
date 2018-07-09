@@ -1,8 +1,8 @@
 - name: Rename Windows Server
   hosts: all
   gather_facts: false
-  roles:
-  - name: Changing Name
+  tasks:
+  - name: Rename
     win_hostname:
       name: AnCSC0MidTrap
     register: win_hostname
