@@ -6,3 +6,4 @@
       name: "{{name}}"
   - name: Reboot Server
       win_reboot:
+        reboot_timeout: 3600
