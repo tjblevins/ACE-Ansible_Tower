@@ -8,7 +8,7 @@
       ProxyVia On
 
       <Proxy balancer://sdcms>
-        BalancerMember http://CMSLBIP:80
+        BalancerMember http://WWWIP:80
         ProxySet lbmethod=bybusyness
       </Proxy>
       <Location />
