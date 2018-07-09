@@ -1,5 +1,5 @@
 <VirtualHost *:80>
-  ServerName cms.wm.acmesitedepot.com
+  ServerName cms.LABCODE.acmesitedepot.com
 
   <IfModule mod_proxy_ajp.c>
       ProxyRequests Off
@@ -8,7 +8,7 @@
       ProxyVia On
 
       <Proxy balancer://sdcms>
-        BalancerMember http://CHANGEHOST:80
+        BalancerMember http://CMSLBIP:80
         ProxySet lbmethod=bybusyness
       </Proxy>
       <Location />
