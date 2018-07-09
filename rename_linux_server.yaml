@@ -1,4 +1,4 @@
-- name: Rename LB
+- name: Rename Linux Server
   hosts: "{{ip}}"
   tasks:
     - name: Changing Name

@@ -1,9 +1,9 @@
 - name: Rename Windows Server
-  hosts: all
+  hosts: "{{ip}}"
   gather_facts: false
   tasks:
   - name: Rename Server
-    win_shell: Rename-Computer -NewName "AnCSC0MidTrap"
+    win_shell: Rename-Computer -NewName "{{name}}"
   - name: Reboot
     win_reboot:
 
