@@ -2,7 +2,6 @@
   hosts: all
   gather_facts: false
   roles:
-  - win_hostname	
   - name: Changing Name
     win_hostname:
       name: AnCSC0MidTrap
