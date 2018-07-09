@@ -1,9 +1,12 @@
 - name: Rename Windows Server
-  hosts: "{{ip}}"
-  tasks:
+  hosts: all
+  gather_facts: false
+  roles:
+  - win_hostname	
   - name: Changing Name
     win_hostname:
-      name: "{{name}}"
-  - name: Reboot Server
+      name: AnCSC0MidTrap
+    register: win_hostname
+  - name: Reboot
     win_reboot:
-      reboot_timeout: 3600
+    when: win_hostname.reboot_required
