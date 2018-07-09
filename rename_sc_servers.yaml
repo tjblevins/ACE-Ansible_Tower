@@ -19,8 +19,8 @@
   hosts: "{{www_ip}}"
   tasks:
   - name: Changing Name
-      hostname: 
-        name: "{{www_name}}"
+    hostname: 
+      name: "{{www_name}}"
   - name: Setting Name Preservation
     lineinfile:
       path: /etc/cloud/cloud.cfg
