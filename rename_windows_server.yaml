@@ -5,5 +5,5 @@
     win_hostname:
       name: "{{name}}"
   - name: Reboot Server
-      win_reboot:
-        reboot_timeout: 3600
+    win_reboot:
+      reboot_timeout: 3600
