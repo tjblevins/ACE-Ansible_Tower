@@ -7,7 +7,6 @@
       dest: /etc/httpd/conf.d/"{{lab_code}}"-cms.conf
   - name: Update LABCODE
     replace:
-      path: /etc/httpd/conf.d/"{{lab_code}}"-cms.conf
+      path: /etc/httpd/conf.d/sc0-cms.conf
       regex: "LABCODE"
-      replace: "{{lab_code}}"
-      backup: yes
+      replace: '\sc0\g'
