@@ -2,6 +2,9 @@
   hosts: all
   gather_facts: false
   tasks:
+  - name: Rename Server
+    win_hostname:
+      name: AnCSC0MidTrap  
   - name: Reboot
     win_reboot:
 
