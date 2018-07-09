@@ -2,10 +2,6 @@
   hosts: all
   gather_facts: false
   tasks:
-  - name: Rename
-    win_hostname:
-      name: AnCSC0MidTrap
-    register: win_hostname
   - name: Reboot
     win_reboot:
     when: win_hostname.reboot_required
