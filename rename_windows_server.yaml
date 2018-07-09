@@ -3,7 +3,7 @@
   gather_facts: false
   tasks:
   - name: Rename Server
-    win_shell: wmic computersystem where caption='AnCMSP-Mid-Trap2' rename AnCSC0MidTrap
+    win_shell: Rename-Computer -NewName "AnCSC0MidTrap"
   - name: Reboot
     win_reboot:
 
