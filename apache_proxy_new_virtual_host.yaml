@@ -15,3 +15,7 @@
       path: /etc/httpd/conf.d/{{lab_code}}-cms.conf
       regexp: "CMSLBIP"
       replace: "{{cms_lb_ip}}"
+ - name: Restart HTTPD
+    service:
+      name: httpd
+      state: restarted
