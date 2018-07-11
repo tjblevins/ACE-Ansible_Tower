@@ -1,5 +1,5 @@
 - name: Rename Linux Server
-  hosts: "{{ip}}"
+  hosts: all
   tasks:
     - name: Changing Name
       hostname: 
