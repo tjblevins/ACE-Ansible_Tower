@@ -17,6 +17,6 @@
       ignore_errors: true
     - name: Wait for Reboot
       pause:
-        seconds: 90
+        seconds: 105
     - name: Test Server Status
       ping:
