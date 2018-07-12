@@ -1,0 +1,8 @@
+- name: ServiceNow Trigger Rediscover (Requires Custom ServiceNow API)
+  hosts: all
+  tasks:
+    - name: Trigger ServiceNow Discovery
+      uri:
+        url: https://ancshowcase.service-now.com/api/snc/restfulworkflow/AnCQuickDiscover?u_ip=172.32.3.30
+        method: POST
+        force_basic_auth: yes
