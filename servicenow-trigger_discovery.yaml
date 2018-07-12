@@ -3,8 +3,8 @@
   tasks:
     - name: Trigger ServiceNow Discovery
       uri:
-        url: https://ancshowcase.service-now.com/api/snc/restfulworkflow/AnCQuickDiscover?u_ip=172.32.3.30
+        url: https://{{instance}}.service-now.com/api/snc/restfulworkflow/AnCQuickDiscover?u_ip={{ip}}
         method: POST
-        user: websrvc
-        password: Aw3s0m34321
+        user: {{user}}
+        password: {{pass}}
         force_basic_auth: yes
