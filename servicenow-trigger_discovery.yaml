@@ -5,6 +5,6 @@
       uri:
         url: https://{{instance}}.service-now.com/api/snc/restfulworkflow/AnCQuickDiscover?u_ip={{ip}}
         method: POST
-        user: {{user}}
-        password: {{pass}}
+        user: "{{user}}"
+        password: "{{pass}}"
         force_basic_auth: yes
