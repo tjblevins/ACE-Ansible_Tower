@@ -11,7 +11,7 @@
         insertafter: '^# vim'
         line: 'preserve_hostname: true'
     - name: Restart Server
-      command: /sbin/shutdown -r +1
+      command: /sbin/shutdown -r
       async: 1
       poll: 0
       ignore_errors: true
