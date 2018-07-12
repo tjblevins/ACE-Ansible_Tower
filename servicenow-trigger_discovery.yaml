@@ -5,6 +5,6 @@
       uri:
         url: https://ancshowcase.service-now.com/api/snc/restfulworkflow/AnCQuickDiscover?u_ip=172.32.3.30
         method: POST
-        user: admin
-        password: Aw3s0m31
+        user: websrvc
+        password: Aw3s0m34321
         force_basic_auth: yes
