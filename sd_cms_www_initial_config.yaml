@@ -5,3 +5,5 @@
   import_playbook: rename_linux_server.yaml
 - name: Trigger ServiceNow Discovery
   import_playbook: servicenow-trigger_discovery.yaml
+- name: Add Server to Zabbix
+  import_playbook: servicenow-trigger_discovery.yaml
