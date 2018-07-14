@@ -3,7 +3,7 @@
   tasks:
     - name: Changing Name
       hostname: 
-        name: "{{name}}"
+        name: anc-"{{lab_code}}"-"{{server_role}}"
     - name: Setting Name Preservation
       lineinfile:
         path: /etc/cloud/cloud.cfg
