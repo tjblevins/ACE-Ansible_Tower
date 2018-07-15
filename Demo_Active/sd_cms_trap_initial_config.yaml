@@ -3,8 +3,5 @@
   gather_facts: false
   tasks:
   - setup:
-    register: ansible_facts
-  - debug: item
-    with_dict: ansible_facts
 - name: Rename CMS WWW Server
   import_playbook: rename_windows_server.yaml
