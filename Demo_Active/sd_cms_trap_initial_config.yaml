@@ -1,6 +1,6 @@
 - name: Site Depot-CMS-TRAP-Initial Config 
   hosts: all
-  gather_facts: false
+  gather_facts: true
   tasks:
   - setup:
 - name: Rename CMS WWW Server
