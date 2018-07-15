@@ -2,8 +2,7 @@
   hosts: all
   gather_facts: false
   tasks:
-  - name: Rename Server
-    win_shell: Rename-Computer -NewName anc{{lab_code}}{{server_role}}
-  - name: Reboot
-    win_reboot:
-
+    - name: Rename Server
+      win_shell: Rename-Computer -NewName anc{{lab_code}}{{server_role}}
+    - name: Reboot
+      win_reboot:
