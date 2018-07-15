@@ -2,6 +2,6 @@
   hosts: all
   tasks:
 - name: Rename CMS WWW Server
-  import_playbook: rename_linux_server.yaml
+  import_playbook: rename_windows_server.yaml
 - name: Trigger ServiceNow Discovery
   import_playbook: servicenow-trigger_discovery.yaml
