@@ -3,6 +3,6 @@
   gather_facts: false
   tasks:
     - name: Rename Server
-      win_shell: Rename-Computer -NewName anc{{lab_code}}{{server_role}}
+      win_shell: Rename-Computer -ComputerName . -NewName anc{{lab_code}}{{server_role}}
     - name: Reboot
       win_reboot:
