@@ -1,7 +1,6 @@
 - name: Site Depot-CMS-TRAP-Initial Config 
   hosts: all
+  gather_facts: false
   tasks:
 - name: Rename CMS WWW Server
   import_playbook: rename_windows_server.yaml
-- name: Trigger ServiceNow Discovery
-  import_playbook: servicenow-trigger_discovery.yaml
