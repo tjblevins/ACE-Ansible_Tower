@@ -2,7 +2,7 @@
   hosts: all
   tasks:
     - name: Trigger ServiceNow Discovery
-      uri:
+      win_uri:
         url: https://{{discovery_instance}}.service-now.com/api/snc/restfulworkflow/AnCQuickDiscover?u_ip={{ansible_ip_addresses[1]}}
         method: POST
         user: websrvc
