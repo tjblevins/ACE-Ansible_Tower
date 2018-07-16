@@ -10,7 +10,7 @@
       path: /usr/local/nagios/etc/servers/hostgroups/sd-{{lab_code}}.conf
       regexp: "CHANGE"
       replace: "{{lab_code}}"
- - name: Restart Nagios
+  - name: Restart Nagios
     service:
       name: nagios
       state: restarted
