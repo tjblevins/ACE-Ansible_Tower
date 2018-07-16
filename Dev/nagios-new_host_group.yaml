@@ -1,0 +1,16 @@
+- name: Update Apache Proxy for New CMS Site
+  hosts: all
+  tasks:
+  - name: Deploy Nagios Host Group Template
+    template:
+      src: sd-host_group.temp
+      dest: /usr/local/nagios/etc/servers/hostgroups/sd-{{lab_code}}.conf
+  - name: Update LABCODE
+    replace:
+      path: /usr/local/nagios/etc/servers/hostgroups/sd-{{lab_code}}.conf
+      regexp: "CHANGE"
+      replace: "{{lab_code}}"
+ - name: Restart Nagios
+    service:
+      name: nagios
+      state: restarted
