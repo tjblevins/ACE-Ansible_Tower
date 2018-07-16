@@ -1,4 +1,4 @@
-- name: Update Apache Proxy for New CMS Site
+- name: Create Nagios Host Group
   hosts: all
   tasks:
   - name: Deploy Nagios Host Group Template
