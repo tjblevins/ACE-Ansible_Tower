@@ -4,10 +4,10 @@
   - name: Deploy Nagios Host Group Template
     template:
       src: sd-host_group.temp
-      dest: /usr/local/nagios/etc/servers/hostgroups/sd-{{lab_code}}.conf
+      dest: /usr/local/nagios/etc/servers/hostgroups/sd-{{lab_code}}.cfg
   - name: Update LABCODE
     replace:
-      path: /usr/local/nagios/etc/servers/hostgroups/sd-{{lab_code}}.conf
+      path: /usr/local/nagios/etc/servers/hostgroups/sd-{{lab_code}}.cfg
       regexp: "CHANGE"
       replace: "{{lab_code}}"
   - name: Restart Nagios
