@@ -1,0 +1,101 @@
+
+###############################################################################
+###############################################################################
+#
+# HOST DEFINITION - Base Template
+#
+###############################################################################
+###############################################################################
+
+define host{
+use               linux-default        ; Inherit default values from a template
+host_name         CHANGENAME   ; The name we're giving to this server
+address           CHANGEIP      ; IP address of Remote Linux host
+hostgroups        CHANGEGROUP
+}
+
+###############################################################################
+###############################################################################
+#
+# SERVICE DEFINITIONS
+#
+###############################################################################
+###############################################################################
+
+define service{
+use                     linux-service
+host_name               CHANGENAME
+service_description     Check Agent
+event_handler            send_snmptrap
+event_handler_enabled    1
+check_command           check_tcp!5666
+}
+
+define service{
+use                     linux-service
+host_name               CHANGENAME
+service_description     Check MySQL;
+check_interval             15
+retry_interval             15
+event_handler            send_snmptrap
+event_handler_enabled    1
+check_command           check_tcp!3306
+}
+
+#define service{
+#use                     linux-service
+#host_name               CHANGENAME
+#service_description     Check Apache
+#event_handler            send_snmptrap
+#event_handler_enabled    1
+#check_command           check_http
+#}
+
+
+
+define service{
+use                     linux-service
+host_name               CHANGENAME
+service_description     CPU Load
+event_handler            send_snmptrap 
+event_handler_enabled    1
+check_command           check_nrpe!check_load
+}
+
+define service{
+use                     linux-service
+host_name               CHANGENAME
+service_description     Total Processes
+event_handler            send_snmptrap
+event_handler_enabled    1
+check_command           check_nrpe!check_total_procs
+}
+
+define service{
+use                     linux-service
+host_name               CHANGENAME
+service_description     Current Users
+event_handler            send_snmptrap
+event_handler_enabled    1
+check_command           check_nrpe!check_users
+}
+
+define service{
+use                     linux-service
+host_name               CHANGENAME
+service_description     SSH Monitoring
+event_handler            send_snmptrap
+event_handler_enabled    1
+check_command           check_ssh
+}
+
+#define service{
+#use                     linux-service
+#host_name               CHANGENAME
+#service_description     FTP Monitoring
+#event_handler            send_snmptrap
+#event_handler_enabled    1
+#check_command           check_nrpe!check_ftp
+#}
+
+
