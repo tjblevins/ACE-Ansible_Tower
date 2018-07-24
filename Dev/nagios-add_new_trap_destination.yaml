@@ -8,8 +8,8 @@
     - name: Update Return to snmp_trap_relay.sh
       lineinfile:
         path: /usr/local/nagios/bin/snmp_trap_relay.sh
-        line: ''
+        line: ' '
     - name: Update Return to snmp_trap_relay.sh
       lineinfile:
         path: /usr/local/nagios/bin/snmp_trap_relay.sh
-        line: ''
+        line: ' '
