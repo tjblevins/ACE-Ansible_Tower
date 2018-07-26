@@ -4,7 +4,7 @@
   - name: Create a new host or update an existing host's info
     local_action:
       module: zabbix_host
-      server_url: http://172.32.251.46
+      server_url: http://172.32.251.46/zabbix/
       login_user: admin
       login_password: Aw3s0m31
       host_name: anc-sc0-www1
