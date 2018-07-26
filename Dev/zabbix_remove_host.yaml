@@ -5,7 +5,7 @@
     local_action:
       module: zabbix_host
       server_url: http://{{zabbix_ip}}/zabbix/
-      login_user: {{zabbix_user}}
-      login_password: {{zabbix_pass}}
-      host_name: {{host_name}}
+      login_user: "{{zabbix_user}}"
+      login_password: "{{zabbix_pass}}"
+      host_name: "{{host_name}}"
       state: absent
