@@ -1,0 +1,22 @@
+- name: Create a new host or update an existing host's info
+  local_action:
+    module: zabbix_host
+    server_url: http://172.32.251.46
+    login_user: admin
+    login_password: Aw3s0m31
+    host_name: anc-sc0-www1
+    visible_name: anc-sc0-www1
+    host_groups:
+      - Site Depot CMS - sc0
+    link_templates:
+      - Template App Zabbix Agent
+    status: enabled
+    state: present
+    inventory_mode: automatic
+    interfaces:
+      - type: 1
+        main: 1
+        useip: 1
+        ip: 172.32.3.85
+        dns: ""
+        port: 10050
