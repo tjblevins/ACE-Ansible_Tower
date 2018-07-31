@@ -1,5 +1,6 @@
 - name: Add WWW Host to Zabbix
   hosts: "{{tower_ip}}"
+  gather_facts: false
   tasks:
   - name: Create a new host or update an existing host's info
     local_action:
