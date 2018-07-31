@@ -1,19 +1,22 @@
 - name: Site Depot CMS Web Server Configuration
   hosts: tag_Name_AnCSC0CMS1
-  vars:
-    zabbix_user: admin
-    zabbix_pass: Aw3s0m31
-    zabbix_ip: 172.32.251.46
-    host_ip: "{{ansible_default_ipv4.address}}"
-    host_name:  "{{ansible_hostname}}"
-    server_role: www
-    host_group: sd-{{lab_code}}
   tasks:
 - name: Deploy Zabbix Agent Config
   import_playbook: deploy_zabbix_config-AnCCMS1.yaml
 - name: Activate Zabbix Monitoring
   import_playbook: zabbix_create_host-www.yaml
+  vars:
+    zabbix_user: admin
+    zabbix_pass: Aw3s0m31
+    zabbix_ip: 172.32.251.46
+    host_ip: "{{hostvars['tag_Name_AnCSC0CMS1']['ansible_default_ipv4.address']}}"
+    host_name: "{{hostvars['tag_Name_AnCSC0CMS1']['ansible_hostname']}}"
 - name: Activate Nagios Monitoring
   import_playbook: nagios-deploy_mon_temp.yaml
+    vars:
+    server_role: www
+    host_group: sd-{{lab_code}}
+    host_ip: "{{hostvars['tag_Name_AnCSC0CMS1']['ansible_default_ipv4.address']}}"
+    host_name: "{{hostvars['tag_Name_AnCSC0CMS1']['ansible_hostname']}}"
 - name: Discover OS and Applications in ServiceNow
   import_playbook: servicenow-trigger_discovery.yaml
