@@ -10,7 +10,7 @@
     host_group: sd-{{lab_code}}
   tasks:
 - name: Deploy Zabbix Agent Config
-  import_playbook: deploy_zabbix_config.yaml
+  import_playbook: deploy_zabbix_config-AnCCMS1.yaml
 - name: Activate Zabbix Monitoring
   import_playbook: zabbix_create_host-www.yaml
 - name: Activate Nagios Monitoring
