@@ -1,5 +1,5 @@
 - name: Site Depot CMS Web Server Configuration
-  hosts: all
+  hosts: tag_Name_AnCSC0CMS1
   vars:
     zabbix_user: admin
     zabbix_pass: Aw3s0m31
