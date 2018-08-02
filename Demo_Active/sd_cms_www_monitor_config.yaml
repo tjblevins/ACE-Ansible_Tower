@@ -9,7 +9,7 @@
     zabbix_user: admin
     zabbix_pass: Aw3s0m31
     zabbix_ip: 172.32.251.46
-    host_ip: "{{hostvars['172.32.3.230']['ansible_default_ipv4.address']}}"
+    host_ip: "{{hostvars['172.32.3.230'].ansible_default_ipv4.address}}"
     host_name: "{{hostvars['172.32.3.230']['ansible_hostname']}}"
 - name: Activate Nagios Monitoring
   import_playbook: nagios-deploy_mon_temp.yaml
