@@ -1,6 +1,7 @@
 - name: ServiceNow Trigger Rediscover (Requires Custom ServiceNow API)
   hosts: "{{host_ip}}"
   become: yes
+  become_method: sudo
   tasks:
     - name: Trigger ServiceNow Discovery
       uri:

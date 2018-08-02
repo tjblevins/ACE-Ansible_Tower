@@ -1,6 +1,7 @@
 - name: Update Zabbix Config and Restart Service
   hosts: tag_Name_AnCSC0CMS1
   become: yes
+  become_method: sudo
   tasks:
   - name: Update Zabbix Config
     template:
