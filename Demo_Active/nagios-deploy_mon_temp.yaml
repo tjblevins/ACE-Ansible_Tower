@@ -1,5 +1,6 @@
 - name: Activate Nagios Monitoring - Linux Server
   hosts: 172.32.251.72
+  gather_facts: false
   tasks:
   - name: Deploy Nagios Template
     template:
