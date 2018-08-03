@@ -5,7 +5,7 @@
   tasks:
     - name: Trigger ServiceNow Discovery
       uri:
-        url: https://{{discovery_instance}}.service-now.com/api/snc/restfulworkflow/ITOMCMSDeploy?u_hostip={{ansible_ip_addresses[0]}}&u_hostname={{ansible_hostname}}
+        url: https://{{discovery_instance}}.service-now.com/api/snc/restfulworkflow/ITOMCMSDeploy?u_hostip={{ansible_default_ipv4.address}}&u_hostname={{ansible_hostname}}
         method: POST
         user: websrvc
         password: Aw3s0m34321
