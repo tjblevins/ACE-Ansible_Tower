@@ -1,0 +1,7 @@
+- name: Start Linux Service
+  hosts: "{{host_ip}}"
+  tasks:
+    - name: Starting Service
+      service:
+        name: "{{service}}"
+        state: started
