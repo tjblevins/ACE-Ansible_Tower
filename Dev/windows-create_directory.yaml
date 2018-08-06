@@ -3,4 +3,4 @@
   gather_facts: false
   tasks:
     - Name Create Mid Server Directory
-      win_shell: copy-item .\Install-K\agent -destination .\{{instancename}} -Recurse
+      win_shell: copy-item c:\MIDServer\Install-K\agent -destination c:\MIDServer\{{instancename}} -Recurse
