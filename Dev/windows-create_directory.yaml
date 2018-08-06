@@ -32,13 +32,23 @@
         path: c:\MIDServer\{{instancename}}\agent\conf\wrapper-override.conf
         regexp: '^wrapper.displayname=CHANGEDISPLAY'
         line:  ' wrapper.displayname=snc_mid_{{mid_server_name}}_{{instancename}}'
-    - name: Create MID Server Service Directory
+    - name: Create MID Server Service
       win_shell: .\start.bat
       args:
         chdir:  c:\MIDServer\{{instancename}}\agent
-    - name: Fix XML in Conf File
+    - name: Fix XML in Conf File 1
       win_lineinfile:
         path: c:\MIDServer\{{instancename}}\agent\config.xml
-        regexp: ' ^</parameters>'
+        regexp: '^</parameters>'
         state: absent
+    - name: Fix XML in Conf File 2
+      win_lineinfile:
+        path: c:\MIDServer\{{instancename}}\agent\config.xml
+        regexp: '    <parameter name="name" value="{{mid_server_name}}_{{instancename}}"/>'
+        insertafter: '   <parameter name="name" value="{{mid_server_name}}_{{instancename}}"/>'
+        line: '</parameters>'
+    - name: Start MID Server Service
+      win_service:
+        name: snc_mid_{{mid_server_name}}_{{instancename}}
+        state: started
 
