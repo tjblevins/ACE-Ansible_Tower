@@ -1,6 +1,6 @@
-- name: Deploy Shared Mid Servers
+- name: Deploy Shared MID Servers
   hosts: all
   gather_facts: false
   tasks:
-    - Name Create Mid Server Directory
+    - name: Create MID Server Service Directory
       win_shell: copy-item c:\MIDServer\Install-K\agent -destination c:\MIDServer\{{instancename}} -Recurse
