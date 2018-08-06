@@ -36,3 +36,9 @@
       win_shell: .\start.bat
       args:
         chdir:  c:\MIDServer\{{instancename}}\agent
+    - name: Fix XML in Conf File
+      win_lineinfile:
+        path: c:\MIDServer\{{instancename}}\agent\config.xml
+        regexp: ' ^</parameters>'
+        state: absent
+
