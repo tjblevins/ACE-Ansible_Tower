@@ -17,7 +17,7 @@
       win_lineinfile:
         path: c:\MIDServer\{{instancename}}\agent\config.xml
         regexp: 'SERVER_NAME'
-        line:  '"{{mid_server_name}}_{{instancename}}"'
+        line:  '    <parameter name="name" value="{{mid_server_name}}_{{instancename}}"/>'
 #    - name: Deploy MID Server Wrapper-Override.Conf
 #      win_copy:
 #        src: mid_wrapper-override.tmp
