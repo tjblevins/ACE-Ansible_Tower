@@ -32,4 +32,7 @@
         path: c:\MIDServer\{{instancename}}\agent\conf\wrapper-override.conf
         regexp: '^wrapper.displayname=CHANGEDISPLAY'
         line:  ' wrapper.displayname=snc_mid_{{mid_server_name}}_{{instancename}}'
-        
+    - name: Create MID Server Service Directory
+      win_shell: .\start.bat
+      args:
+        chdir:  c:\MIDServer\{{instancename}}\agent
