@@ -8,3 +8,8 @@
       win_copy:
         src: mid_config_xml.tmp
         dest: c:\MIDServer\{{instancename}}\config.xml
+    - name: Update Instance Name
+      win_lineinfile:
+        path: c:\MIDServer\{{instancename}}\config.xml
+        regexp: '    <parameter name="url" value="http://INSTANCE_NAME.service-now.com/"/>'
+        line:  '    <parameter name="url" value="http://{{instancename}}.service-now.com/"/>'
