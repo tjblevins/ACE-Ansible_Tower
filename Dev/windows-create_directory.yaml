@@ -4,6 +4,3 @@
   tasks:
     - Name Create Mid Server Directory
       win_shell: copy-item .\Install-K\agent -destination .\{{instancename}} -Recurse
-        args:
-          chdir c:\MIDServer\
-          creates: "{{instancename}}"
