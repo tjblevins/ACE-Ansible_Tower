@@ -47,8 +47,8 @@
         regexp: '    <parameter name="name" value="{{mid_server_name}}_{{instancename}}"/>'
         insertafter: '   <parameter name="name" value="{{mid_server_name}}_{{instancename}}"/>'
         line: '</parameters>'
-    - name: Start MID Server Service
-      win_service:
-        name: snc_mid_{{mid_server_name}}_{{instancename}}
-        state: started
+#    - name: Start MID Server Service
+#      win_service:
+#        name: snc_mid_{{mid_server_name}}_{{instancename}}
+#        state: started
 
