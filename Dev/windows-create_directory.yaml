@@ -1,15 +1,22 @@
-- name: Deploy Shared MID Servers
+- name: Install MID Server
   hosts: all
   gather_facts: false
   tasks:
     - name: Create MID Server Service Directory
-      win_shell: copy-item c:\MIDServer\Install-K\agent -destination c:\MIDServer\{{instancename}} -Recurse
+      win_shell: copy-item c:\MIDServer\{{install_dir}}\agent -destination c:\MIDServer\{{instancename}}\agent -Recurse
     - name: Deploy MID Server Config.XML
       win_copy:
         src: mid_config_xml.tmp
-        dest: c:\MIDServer\{{instancename}}\config.xml
+        dest: c:\MIDServer\{{instancename}}\agent\config.xml
     - name: Update Instance Name
       win_lineinfile:
-        path: c:\MIDServer\{{instancename}}\config.xml
+        path: c:\MIDServer\{{instancename}}\agent\config.xml
         regexp: '    <parameter name="url" value="http://INSTANCE_NAME.service-now.com/"/>'
         line:  '    <parameter name="url" value="http://{{instancename}}.service-now.com/"/>'
+    - name: Update MID Server Name
+      win_lineinfile:
+        path: c:\MIDServer\{{instancename}}\agent\config.xml
+        regexp: '     <parameter name="name" value="SERVER_NAME"/>'
+        line:  '    <parameter name="name" value="{{mid_server_name}}_{{instancename}}"/>'
+    - name: Create Start MID Server Service
+      win_shell: c:\MIDServer\{{instancename}}\agent\start.bat
