@@ -19,4 +19,4 @@
         regexp: '     <parameter name="name" value="SERVER_NAME"/>'
         line:  '    <parameter name="name" value="{{mid_server_name}}_{{instancename}}"/>'
     - name: Create Start MID Server Service
-      win_shell: c:\MIDServer\{{instancename}}\agent\start.bat
+      win_shell: c:\MIDServer\{{instancename}}\agent\start
