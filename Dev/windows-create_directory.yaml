@@ -4,3 +4,7 @@
   tasks:
     - name: Create MID Server Service Directory
       win_shell: copy-item c:\MIDServer\Install-K\agent -destination c:\MIDServer\{{instancename}} -Recurse
+    - name: Deploy MID Server Config.XML
+      win_copy:
+        src: mid_config_xml.tmp
+        dest: c:\MIDServer\{{instancename}}\config.xml
