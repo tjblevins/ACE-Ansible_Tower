@@ -8,4 +8,4 @@
   vars:
     host_ip: "{{ansible_default_ipv4.address}}"
 - name: Add Server to Zabbix
-  import_playbook: deploy_zabbix_config.yaml
+  import_playbook: zabbix_deploy_agent_config.yaml
