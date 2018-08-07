@@ -3,7 +3,7 @@
   tasks:
   - name: Deploy Wordpress Config
     template:
-      src: wp-config.temp
+      src: /files/wp-config.temp
       dest: /var/www/html/wp-config.php
       owner: apache
       group: apache

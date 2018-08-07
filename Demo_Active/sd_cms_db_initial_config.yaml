@@ -1,6 +1,7 @@
 - name: Site Depot-CMS-DB-Initial Config 
   hosts: all
   tasks:
+    - name: Fix
 - name: Rename CMS DB Server
   import_playbook: linux-rename_server.yaml
 - name: Trigger ServiceNow Discovery
