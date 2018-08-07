@@ -6,7 +6,7 @@
       win_shell: copy-item c:\MIDServer\{{install_dir}}\agent -destination c:\MIDServer\{{instancename}}\agent -Recurse
     - name: Deploy MID Server Config.XML
       win_copy:
-        src: mid_config_xml.tmp
+        src: file/mid_config_xml.tmp
         dest: c:\MIDServer\{{instancename}}\agent\config.xml
     - name: Update Instance Name
       win_lineinfile:
@@ -20,7 +20,7 @@
         line:  '    <parameter name="name" value="{{mid_server_name}}_{{instancename}}"/>'
     - name: Deploy MID Server Wrapper-Override.Conf
       win_copy:
-        src: mid_wrapper-override.tmp
+        src: file/mid_wrapper-override.tmp
         dest: c:\MIDServer\{{instancename}}\agent\conf\wrapper-override.conf
     - name: Update MID Service Wrapper Name
       win_lineinfile:

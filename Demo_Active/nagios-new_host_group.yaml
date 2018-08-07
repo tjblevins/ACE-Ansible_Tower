@@ -3,7 +3,7 @@
   tasks:
   - name: Deploy Nagios Host Group Template
     template:
-      src: /files/sd-host_group.temp
+      src: files/sd-host_group.temp
       dest: /usr/local/nagios/etc/servers/hostgroups/sd-{{lab_code}}.cfg
   - name: Update LABCODE
     replace:

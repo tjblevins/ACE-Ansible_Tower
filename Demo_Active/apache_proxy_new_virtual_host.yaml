@@ -3,7 +3,7 @@
   tasks:
   - name: Deploy Virtual Host Template
     template:
-      src: /files/sd-cms.temp
+      src: files/sd-cms.temp
       dest: /etc/httpd/conf.d/{{lab_code}}-cms.conf
   - name: Update LABCODE
     replace:

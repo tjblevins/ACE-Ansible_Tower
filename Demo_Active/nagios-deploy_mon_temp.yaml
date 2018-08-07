@@ -5,7 +5,7 @@
   tasks:
   - name: Deploy Nagios Template
     template:
-      src: /files/nagios-{{server_role}}.tmp
+      src: files/nagios-{{server_role}}.tmp
       dest: /usr/local/nagios/etc/servers/linux/anc-{{lab_code}}-{{server_role}}.cfg
   - name: Update CHANGENAME
     replace:
