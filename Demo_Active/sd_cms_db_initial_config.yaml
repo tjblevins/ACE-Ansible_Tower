@@ -1,7 +1,10 @@
 - name: Site Depot-CMS-DB-Initial Config 
   hosts: all
   tasks:
-    - name: Fix
+    - name: Fix userparameter_mysql.conf
+      template:
+        src: files/userparameter_mysql.tmp
+        dest: /etc/zabbix/zabbix_agentd.d/userparameter_mysql.conf
 - name: Rename CMS DB Server
   import_playbook: linux-rename_server.yaml
 - name: Trigger ServiceNow Discovery
