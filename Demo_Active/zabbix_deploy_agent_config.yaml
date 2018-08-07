@@ -3,7 +3,7 @@
   tasks:
   - name: Update Zabbix Config
     template:
-      src: /files/zabbix_agentd.conf
+      src: files/zabbix_agentd.conf
       dest: /etc/zabbix/zabbix_agentd.conf
   - name: Restart Zabbix
     service:
