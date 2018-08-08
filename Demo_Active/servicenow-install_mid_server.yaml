@@ -36,3 +36,9 @@
       win_shell: .\start.bat
       args:
         chdir:  c:\MIDServer\{{instancename}}\agent
+    - name: set the log on user to a local account
+      win_service:
+        name: snc_mid_{{mid_server_name}}_{{instancename}}
+        state: restarted
+        username: .\mid.server
+        password: Aw3s0m31
