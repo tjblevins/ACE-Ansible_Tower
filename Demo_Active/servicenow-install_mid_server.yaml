@@ -20,7 +20,7 @@
         line:  '    <parameter name="name" value="{{mid_server_name}}_{{instancename}}"/>'
     - name: Deploy MID Server Wrapper-Override.Conf
       win_copy:
-        src: file/mid_wrapper-override.tmp
+        src: files/mid_wrapper-override.tmp
         dest: c:\MIDServer\{{instancename}}\agent\conf\wrapper-override.conf
     - name: Update MID Service Wrapper Name
       win_lineinfile:
