@@ -4,6 +4,6 @@
   become_method: sudo
   tasks:
 - name: Deploy Zabbix Agent Config
-  import_playbook: deploy_zabbix_config.yaml
+  import_playbook: zabbix_deploy_agent_config.yaml
 - name: Trigger CMS Webserver Deployment
   import_playbook: servicenow-trigger_ITOMCMSDeploy.yaml
