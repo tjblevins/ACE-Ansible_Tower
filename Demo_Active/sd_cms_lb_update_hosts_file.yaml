@@ -5,5 +5,5 @@
     lineinfile:
       path: /etc/hosts
       regexp: '^172.'
-      insertafter: '^172.32.2.43'
+      insertafter: '^172.32.'
       line: '{{www_ip}}		{{www_host}}'
