@@ -5,8 +5,8 @@
     lineinfile:
       path: /etc/hosts
       regexp: 'END'
-      insertafter: 'END'
-      line: '{{cms_lb_ip}}          {{cms_lb_host}}          #{{lab_code}}'
+      insertafter: '^#END'
+      line: '{{cms_lb_ip}}          {{cms_lb_host}}'
   - name: Remove END Comment
     lineinfile:
       path: /etc/hosts
@@ -15,6 +15,6 @@
   - name: Insert END Comment as last line
     lineinfile:
       path: /etc/hosts
-      regexp: '^{{cms_lb_ip}}'
-      insertafter: '{{cms_lb_ip}}'
+      regexp: 'anc-{{lab_code}}-lb'
+      insertafter: 'anc-{{lab_code}}-lb'
       line: '#END'
