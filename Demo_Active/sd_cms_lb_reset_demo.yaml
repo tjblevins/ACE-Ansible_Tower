@@ -8,3 +8,10 @@
     service:
       name: httpd
       state: restarted
+  - name: Roll Back Hosts File
+    template:
+      src: files/cms-lb-hosts.tmp
+      dest: /etc/hosts
+      owner: root
+      group: root
+      mode: 0644
