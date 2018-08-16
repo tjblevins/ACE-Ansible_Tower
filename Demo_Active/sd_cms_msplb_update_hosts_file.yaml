@@ -1,0 +1,20 @@
+- name: Updated Hosts file on MSP Load Balancer Server
+  hosts: all
+  tasks:
+  - name: Insert CMS LB Host Record
+    lineinfile:
+      path: /etc/hosts
+      regexp: '^#END'
+      insertafter: 'END'
+      line: '{{cms_lb_ip}}          {{cms_lb_host}}          #{{lab_code}}'
+  - name: Remove END Comment
+    lineinfile:
+      path: /etc/hosts
+      state: absent
+      regexp: '^#END'
+  - name: Insert END Comment as last line
+    lineinfile:
+      path: /etc/hosts
+      regexp: '^{{cms_lb_ip}}'
+      insertafter: '{{cms_lb_ip}}'
+      line: '#END'

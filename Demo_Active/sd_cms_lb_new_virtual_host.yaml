@@ -14,7 +14,7 @@
     replace:
       path: /etc/httpd/conf.d/{{lab_code}}-cms.conf
       regexp: "WWWIP"
-      replace: "{{www_ip}}"
+      replace: "{{www_host}}"
   - name: Restart HTTPD
     service:
       name: httpd
