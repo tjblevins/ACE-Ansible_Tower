@@ -6,8 +6,8 @@
   - name: Insert CMS LB Host Record
     lineinfile:
       path: /etc/hosts
-      regexp: '172.32'
-      insertafter: '^172.32.1.47'
+      regexp: 'END'
+      insertafter: '^#END'
       line: '{{cms_lb_ip}}          {{cms_lb_host}}'    
 #  - name: Remove END Comment
 #    lineinfile:
