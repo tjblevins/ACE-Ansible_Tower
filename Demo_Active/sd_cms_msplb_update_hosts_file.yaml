@@ -6,17 +6,17 @@
   - name: Insert CMS LB Host Record
     lineinfile:
       path: /etc/hosts
-      regexp: 'END'
-      insertafter: '^#END'
+      regexp: '172.32'
+      insertafter: '^172.32.1.47'
       line: '{{cms_lb_ip}}          {{cms_lb_host}}'    
-  - name: Remove END Comment
-    lineinfile:
-      path: /etc/hosts
-      state: absent
-      regexp: 'END'
-  - name: Insert END Comment as last line
-    lineinfile:
-      path: /etc/hosts
-      regexp: 'anc-{{lab_code}}-lb'
-      insertafter: 'anc-{{lab_code}}-lb'
-      line: '#END'
+#  - name: Remove END Comment
+#    lineinfile:
+#      path: /etc/hosts
+#      state: absent
+#      regexp: 'END'
+#  - name: Insert END Comment as last line
+#    lineinfile:
+#      path: /etc/hosts
+#      regexp: 'anc-{{lab_code}}-lb'
+#      insertafter: 'anc-{{lab_code}}-lb'
+#      line: '#END'
