@@ -6,7 +6,6 @@
   - name: Insert CMS LB Host Record
     lineinfile:
       path: /etc/hosts
-#vi       regexp: 'END'
       insertafter: '^#END'
       line: '{{cms_lb_ip}}          {{cms_lb_host}}'    
   - name: Remove END Comment
@@ -17,6 +16,5 @@
   - name: Insert END Comment as last line
     lineinfile:
       path: /etc/hosts
-#      regexp: 'anc-{{lab_code}}-lb'
       insertafter: '^{{cms_lb_ip}}'
       line: '#END'
