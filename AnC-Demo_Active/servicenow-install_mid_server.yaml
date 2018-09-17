@@ -17,7 +17,7 @@
       win_lineinfile:
         path: c:\MIDServer\{{mid_server_name}}\agent\config.xml
         regexp: 'SERVER_NAME'
-        line:  '    <parameter name="name" value="{{mid_server_name}}_{{instancename}}"/>'
+        line:  '    <parameter name="name" value="{{mid_server_name}}"/>'
     - name: Deploy MID Server Wrapper-Override.Conf
       win_copy:
         src: files/mid_wrapper-override.tmp
@@ -26,19 +26,19 @@
       win_lineinfile:
         path: c:\MIDServer\{{mid_server_name}}\agent\conf\wrapper-override.conf
         regexp: '^wrapper.name=CHANGENAME'
-        line:  'wrapper.name=snc_mid_{{mid_server_name}}_{{instancename}}'
+        line:  'wrapper.name=snc_mid_{{mid_server_name}}'
     - name: Update MID Service Wrapper Display Name
       win_lineinfile:
         path: c:\MIDServer\{{mid_server_name}}\agent\conf\wrapper-override.conf
         regexp: '^wrapper.displayname=CHANGEDISPLAY'
-        line:  ' wrapper.displayname=snc_mid_{{mid_server_name}}_{{instancename}}'
+        line:  ' wrapper.displayname=snc_mid_{{mid_server_name}}'
     - name: Create MID Server Service
       win_shell: .\start.bat
       args:
         chdir:  c:\MIDServer\{{mid_server_name}}\agent
     - name: set the log on user to a local account
       win_service:
-        name: snc_mid_{{mid_server_name}}_{{instancename}}
+        name: snc_mid_{{mid_server_name}}
         state: restarted
         username: .\mid.server
         password: Aw3s0m31
