@@ -1,0 +1,7 @@
+- name: Stop Linux Service
+  hosts: "{{host_ip}}"
+  tasks:
+    - name: Stopping Service
+      service:
+        name: "{{service}}"
+        state: stopped
