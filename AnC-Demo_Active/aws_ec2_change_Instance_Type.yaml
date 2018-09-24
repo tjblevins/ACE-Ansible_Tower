@@ -1,4 +1,4 @@
-- name: Change Instance Type
+- name: Change EC2 Instance Type 
   hosts: localhost
   gather_facts: false
   connection: local
