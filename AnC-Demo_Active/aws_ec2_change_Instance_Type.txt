@@ -1,0 +1,10 @@
+- name: Change Instance Type
+  hosts: localhost
+  gather_facts: false
+  connection: local
+  tasks:
+    - name Update Instance Type
+      command: aws ec2-modify-instance-attribute --region  --instance-id {{item.id}} --instance-type t2.medium
+      async: 1
+      poll: 0
+      ignore_errors: true
