@@ -14,10 +14,10 @@
       command: /root/.local/bin/aws ec2 modify-instance-attribute --region {{region}} --instance-id {{itemid}} --instance-type {{type}}
       async: 1
       poll: 0
-#    - name: Start Instance
-#      ec2:
-#        instance_ids: "{{itemid}}"
-#        region: "{{region}}"
-#        instance_type: "{{type}}"
-#        state: running
-#        wait: True
+    - name: Start Instance
+      ec2:
+        instance_ids: "{{itemid}}"
+        region: "{{region}}"
+        instance_type: "{{type}}"
+        state: running
+        wait: True
