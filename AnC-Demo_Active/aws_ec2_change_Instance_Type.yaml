@@ -3,7 +3,7 @@
   gather_facts: false
   connection: local
   tasks:
-    - name Update Instance Type
+    - name: Update Instance Type
       command: aws ec2-modify-instance-attribute --instance-id {{itemid}} --instance-type {{type}}
       async: 1
       poll: 0
