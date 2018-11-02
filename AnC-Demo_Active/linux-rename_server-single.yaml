@@ -1,0 +1,22 @@
+- name: Rename Linux Server
+  hosts: "{{host_ip}}"
+  tasks:
+    - name: Changing Name
+      hostname: 
+        name: anc-{{lab_code}}-{{server_role}}
+    - name: Setting Name Preservation
+      lineinfile:
+        path: /etc/cloud/cloud.cfg
+        regexp: '^# vim'
+        insertafter: '^# vim'
+        line: 'preserve_hostname: true'
+    - name: Restart Server
+      command: /sbin/shutdown -r +1
+      async: 1
+      poll: 0
+      ignore_errors: true
+    - name: Wait for Reboot
+      pause:
+        seconds: 120
+    - name: Test Server Status
+      ping:
