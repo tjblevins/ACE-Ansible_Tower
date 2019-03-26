@@ -1,0 +1,13 @@
+- name: Launch Linux EC2 Instance
+  cloudformation:
+    stack_name: "ACESDTest1"
+    state: "present"
+    region: "us-west-2"
+    disable_rollback: true
+    template: "files/ACE-AnsibleTower1"
+    template_parameters:
+      NameTag: "ACESDTest1"
+      DiskType: "ephemeral"
+      SubNet: "subnet-091f7b63cfea73ad8"
+    tags:
+      Stack: "ACESDTest1"
