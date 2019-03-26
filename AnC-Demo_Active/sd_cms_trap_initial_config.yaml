@@ -2,7 +2,7 @@
   hosts: all
   gather_facts: true
   tasks:
-- name: Rename CMS WWW Server
+- name: Rename Windows Server
   import_playbook: windows-rename_server.yaml
 - name: Run ServiceNow Discovery
   import_playbook: servicenow-trigger_discovery_windows.yaml
