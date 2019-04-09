@@ -1,4 +1,6 @@
 - name: Add A Record to Route 53 Zone in AWS
+  hosts: localhost
+  gather_facts: false
   vars:
     type: A
     ttl: 60
