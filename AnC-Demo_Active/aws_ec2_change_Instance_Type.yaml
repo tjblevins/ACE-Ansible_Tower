@@ -1,5 +1,5 @@
 - name: Change EC2 Instance Type 
-  hosts: 172.32.3.227
+  hosts: localhost
   gather_facts: false
   vars:
     region: us-west-2
