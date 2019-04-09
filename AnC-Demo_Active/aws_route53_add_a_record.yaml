@@ -10,7 +10,7 @@
       route53:
         state: "{{state}}"
         zone: "{{zone}}"
-        record: "{{host}}".{{zone}}
+        record: "{{host}}.{{zone}}"
         type: "{{type}}"
         ttl: "{{ttl}}"
         value: "{{target_ip}}"
