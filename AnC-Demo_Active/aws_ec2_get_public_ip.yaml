@@ -10,5 +10,5 @@
       register: ec2_facts
     - name: Out Put IP
       debug:
-        msg: ec2_facts.instances.public_ip_address
+        var: ec2_facts.instances.public_ip_address
  
