@@ -10,5 +10,5 @@
       register: ec2_facts
     - name: Out Put IP
       debug:
-        var: ec2_facts.instances.image_id
+        var: ec2_facts.instances..image_id
  
