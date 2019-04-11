@@ -5,14 +5,16 @@
       file:
         path: /usr/local/nagios/var/spool/checkresults
         state: directory
+        owner: nagios
+        group: nagios
         mode: 0775
     - name:  Add RW Dir
       file:
         path: /usr/local/nagios/var/rw
         state: directory
+        owner: nagios
+        group: nagios
         mode: 0775
-    - name: Set Ownership nagios:nagios
-      command: chown -R nagios:nagios /usr/local/nagios/var/*
     - name: Restart Nagios
       service:
         name: nagios
