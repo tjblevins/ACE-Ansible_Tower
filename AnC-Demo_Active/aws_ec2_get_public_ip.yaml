@@ -7,7 +7,7 @@
         region: us-west-2
         filters:
           "tag:Name": "{{name_tag}}"
-        register: profile
-    - name: Out Put IP
-      debug:
-        msg: profile.instances.public_ip_address
+     - name: Out Put IP
+        debug:
+          msg: instances.public_ip_address
+ 
