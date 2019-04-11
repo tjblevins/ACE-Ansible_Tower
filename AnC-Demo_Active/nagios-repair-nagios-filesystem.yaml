@@ -13,6 +13,7 @@
         mode: 0775
     - name: Set Ownership nagios:nagios
       command: chown -R nagios:nagios /usr/local/nagios/var/*
+    - name: Restart Nagios
       service:
         name: nagios
         state: restarted
