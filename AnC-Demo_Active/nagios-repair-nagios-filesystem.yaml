@@ -1,23 +1,23 @@
 - name: Repair Nagios Volitile FileSystems after Reboot
-  hosts: "{{nagios_ip}}"
+  hosts: all
   tasks:
-  - name: Add CheckRelsults Dir
-    command: mkdir -p /usr/local/nagios/var/spool/checkresults
-  - name: cd /usr/local/nagios/var/
-    command: cd /usr/local/nagios/var/
-  - name: chmod -R 775 spool
-    command: chmod -R 775 spool
-  - name: mkdir -p /usr/local/nagios/var/rw
-    command: mkdir -p /usr/local/nagios/var/rw
-  - name: cd /usr/local/nagios/var/
-    command: cd /usr/local/nagios/var/
-  - name: chmod 775 rw
-    command: chmod 775 rw
-  - name: chown -R nagios:nagios *
-    command: chown -R nagios:nagios *
-  - name: chmod 775 rw
-    command: chmod 775 rw
-  - name: Restart Nagios
-    service:
-      name: nagios
-      state: restarted
+    - name: Add CheckRelsults Dir
+      command: mkdir -p /usr/local/nagios/var/spool/checkresults
+    - name: cd /usr/local/nagios/var/
+      command: cd /usr/local/nagios/var/
+    - name: chmod -R 775 spool
+      command: chmod -R 775 spool
+    - name: mkdir -p /usr/local/nagios/var/rw
+      command: mkdir -p /usr/local/nagios/var/rw
+    - name: cd /usr/local/nagios/var/
+      command: cd /usr/local/nagios/var/
+    - name: chmod 775 rw
+      command: chmod 775 rw
+    - name: chown -R nagios:nagios *
+      command: chown -R nagios:nagios *
+    - name: chmod 775 rw
+      command: chmod 775 rw
+    - name: Restart Nagios
+      service:
+        name: nagios
+        state: restarted
