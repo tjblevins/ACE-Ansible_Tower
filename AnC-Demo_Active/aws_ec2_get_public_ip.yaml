@@ -7,3 +7,6 @@
         region: us-west-2
         filters:
           "tag:Name": "{{name_tag}}"
+    - name: Out Put IP
+      debug:
+        msg: "{{instances.public_ip_address}}"

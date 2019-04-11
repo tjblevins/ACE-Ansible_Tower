@@ -1,0 +1,115 @@
+{
+    "_ansible_parsed": true,
+    "instances": [
+        {
+            "root_device_type": "ebs",
+            "private_dns_name": "ip-172-31-12-230.us-west-2.compute.internal",
+            "source_dest_check": true,
+            "monitoring": {
+                "state": "disabled"
+            },
+            "subnet_id": "subnet-496e6113",
+            "ebs_optimized": false,
+            "state": {
+                "code": 16,
+                "name": "running"
+            },
+            "security_groups": [
+                {
+                    "group_id": "sg-7b5b9f30",
+                    "group_name": "default"
+                }
+            ],
+            "client_token": "ACE-M-LoadB-1DMAIIDHJHUE2",
+            "virtualization_type": "hvm",
+            "root_device_name": "/dev/sda1",
+            "public_ip_address": "34.211.136.70",
+            "tags": {
+                "OSType": "Linux",
+                "aws:cloudformation:stack-name": "ACE-MSP-TestStack3",
+                "aws:cloudformation:stack-id": "arn:aws:cloudformation:us-west-2:403696492459:stack/ACE-MSP-TestStack3/df1bd100-5bd3-11e9-8681-0695eefd7ce2",
+                "Name": "ACE-MSP-LB-sc01",
+                "aws:cloudformation:logical-id": "LoadBalancer"
+            },
+            "key_name": "ACE-Linux-SSH",
+            "image_id": "ami-0f3339b63c7af30b9",
+            "public_dns_name": "ec2-34-211-136-70.us-west-2.compute.amazonaws.com",
+            "block_device_mappings": [
+                {
+                    "ebs": {
+                        "status": "attached",
+                        "delete_on_termination": true,
+                        "attach_time": "2019-04-10T21:02:01+00:00",
+                        "volume_id": "vol-093041377a4f725b8"
+                    },
+                    "device_name": "/dev/sda1"
+                }
+            ],
+            "placement": {
+                "availability_zone": "us-west-2c",
+                "tenancy": "default",
+                "group_name": ""
+            },
+            "ami_launch_index": 0,
+            "hypervisor": "xen",
+            "network_interfaces": [
+                {
+                    "status": "in-use",
+                    "description": "",
+                    "subnet_id": "subnet-496e6113",
+                    "owner_id": "403696492459",
+                    "ipv6_addresses": [],
+                    "network_interface_id": "eni-0b7b3ee995db3c292",
+                    "attachment": {
+                        "status": "attached",
+                        "device_index": 0,
+                        "attachment_id": "eni-attach-06b26abeaa65c233c",
+                        "delete_on_termination": true,
+                        "attach_time": "2019-04-10T21:02:01+00:00"
+                    },
+                    "private_ip_addresses": [
+                        {
+                            "private_ip_address": "172.31.12.230",
+                            "private_dns_name": "ip-172-31-12-230.us-west-2.compute.internal",
+                            "association": {
+                                "public_ip": "34.211.136.70",
+                                "public_dns_name": "ec2-34-211-136-70.us-west-2.compute.amazonaws.com",
+                                "ip_owner_id": "403696492459"
+                            },
+                            "primary": true
+                        }
+                    ],
+                    "mac_address": "0a:ca:25:26:a6:4a",
+                    "private_ip_address": "172.31.12.230",
+                    "vpc_id": "vpc-4316b63b",
+                    "groups": [
+                        {
+                            "group_id": "sg-7b5b9f30",
+                            "group_name": "default"
+                        }
+                    ],
+                    "association": {
+                        "public_ip": "34.211.136.70",
+                        "public_dns_name": "ec2-34-211-136-70.us-west-2.compute.amazonaws.com",
+                        "ip_owner_id": "403696492459"
+                    },
+                    "source_dest_check": true,
+                    "private_dns_name": "ip-172-31-12-230.us-west-2.compute.internal"
+                }
+            ],
+            "launch_time": "2019-04-10T21:02:01+00:00",
+            "instance_id": "i-004d75da5e8d857f7",
+            "instance_type": "t2.small",
+            "architecture": "x86_64",
+            "state_transition_reason": "",
+            "private_ip_address": "172.31.12.230",
+            "vpc_id": "vpc-4316b63b",
+            "product_codes": []
+        }
+    ],
+    "changed": false,
+    "_ansible_no_log": false,
+    "invocation": {
+        "module_args": ""
+    }
+}
