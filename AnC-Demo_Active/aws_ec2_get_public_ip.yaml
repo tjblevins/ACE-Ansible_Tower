@@ -4,5 +4,6 @@
   tasks:
     - name: Gather EC2 Facts
       ec2_instance_facts:
+        region: us-west-2
         filters:
           "tag:Name": "{{name_tag}}"
