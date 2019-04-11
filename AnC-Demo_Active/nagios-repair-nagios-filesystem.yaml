@@ -1,23 +1,18 @@
 - name: Repair Nagios Volitile FileSystems after Reboot
   hosts: all
   tasks:
-    - name: Add CheckRelsults Dir
-      command: mkdir -p /usr/local/nagios/var/spool/checkresults
-    - name: cd /usr/local/nagios/var/
-      command: cd /usr/local/nagios/var/
-    - name: chmod -R 775 spool
-      command: chmod -R 775 spool
-    - name: mkdir -p /usr/local/nagios/var/rw
-      command: mkdir -p /usr/local/nagios/var/rw
-    - name: cd /usr/local/nagios/var/
-      command: cd /usr/local/nagios/var/
-    - name: chmod 775 rw
-      command: chmod 775 rw
-    - name: chown -R nagios:nagios *
-      command: chown -R nagios:nagios *
-    - name: chmod 775 rw
-      command: chmod 775 rw
-    - name: Restart Nagios
+    - name:  Add Spool Dir
+      file:
+        path: /usr/local/nagios/var/spool/checkresults
+        state: directory
+        mode: 0775
+    - name:  Add RW Dir
+      file:
+        path: /usr/local/nagios/var/rw
+        state: directory
+        mode: 0775
+    - name: Set Ownership nagios:nagios
+      command: chown -R nagios:nagios /usr/local/nagios/var/*
       service:
         name: nagios
         state: restarted
