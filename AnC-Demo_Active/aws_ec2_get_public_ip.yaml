@@ -1,0 +1,8 @@
+- name: Get EC2 Public IP
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Gather EC2 Facts
+      ec2_instance_facts:
+        filters:
+          "tag:Name": "{{name_tag}}"
