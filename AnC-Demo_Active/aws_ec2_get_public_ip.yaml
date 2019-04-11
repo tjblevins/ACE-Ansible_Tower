@@ -7,7 +7,8 @@
         region: us-west-2
         filters:
           "tag:Name": "{{name_tag}}"
+      register: ec2_facts
      - name: Out Put IP
         debug:
-          msg: instances.public_ip_address
+          msg: ec2_facts.instances.public_ip_address
  
