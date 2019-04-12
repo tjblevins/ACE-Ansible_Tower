@@ -1,9 +1,9 @@
 - name: Rename Linux Server
-  hosts: all
+  hosts: "{{server_ip}}"
   tasks:
     - name: Changing Name
       hostname: 
-        name: anc-{{lab_code}}-{{server_role}}
+        name: ace-{{lab_code}}-{{server_role}}
     - name: Setting Name Preservation
       lineinfile:
         path: /etc/cloud/cloud.cfg
