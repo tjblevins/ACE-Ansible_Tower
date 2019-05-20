@@ -1,5 +1,5 @@
 - name: Activate Nagios Monitoring - Linux Server
-  hosts: 172.32.251.72
+  hosts: all
   gather_facts: false
   become: yes
   tasks:
