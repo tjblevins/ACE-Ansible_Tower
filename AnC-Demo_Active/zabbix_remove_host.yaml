@@ -1,5 +1,7 @@
 - name: Update Zabbix Config and Restart Service
-  hosts: all
+  hosts: localhost
+  gather_facts: false
+  become: no
   tasks:
   - name: Create a new host or update an existing host's info
     local_action:
