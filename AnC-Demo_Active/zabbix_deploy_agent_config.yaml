@@ -7,7 +7,7 @@
       dest: /etc/zabbix/zabbix_agentd.conf
   - name: Update ZABBIXSERVER
     replace:
-      path: /usr/local/nagios/etc/nrpe.cfg
+      path: /etc/zabbix/zabbix_agentd.conf
       regexp: “ZABBIXSERVER"
       replace: “{{zabbix_ip}}"
   - name: Restart Zabbix
