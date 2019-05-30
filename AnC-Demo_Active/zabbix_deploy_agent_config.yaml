@@ -1,10 +1,15 @@
 - name: Update Zabbix Config and Restart Service
-  hosts: all
+  hosts: "{{server_ip}}"
   tasks:
   - name: Update Zabbix Config
     template:
       src: files/zabbix_agentd.conf
       dest: /etc/zabbix/zabbix_agentd.conf
+  - name: Update ZABBIXSERVER
+    replace:
+      path: /usr/local/nagios/etc/nrpe.cfg
+      regexp: “ZABBIXSERVER"
+      replace: “{{zabbix_ip}}"
   - name: Restart Zabbix
     service:
       name: zabbix-agent
