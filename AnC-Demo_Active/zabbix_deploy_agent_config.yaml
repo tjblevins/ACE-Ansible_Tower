@@ -8,8 +8,8 @@
   - name: Update ZABBIXSERVER
     replace:
       path: /etc/zabbix/zabbix_agentd.conf
-      regexp: “ZABBIXSERVER"
-      replace: “{{zabbix_ip}}"
+      regexp: "ZABBIXSERVER"
+      replace: "{{zabbix_ip}}"
   - name: Restart Zabbix
     service:
       name: zabbix-agent
