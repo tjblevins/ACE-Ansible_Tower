@@ -8,5 +8,5 @@
     instancename: "{{instancename}}"
     install_dir: "{{install_dir}}"
     mid_server_ip: "{{mid_server_ip}}"
-    mid_server_name: ACE-MID-Shared_{{instancename}}
+    mid_server_name: {{midname}}_{{instancename}}
     mid_server_user: "{{miduser}}"
