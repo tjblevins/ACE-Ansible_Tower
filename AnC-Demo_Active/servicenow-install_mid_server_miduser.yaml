@@ -18,6 +18,11 @@
         path: c:\MIDServer\{{mid_server_name}}\agent\config.xml
         regexp: 'SERVER_NAME'
         line:  '    <parameter name="name" value="{{mid_server_name}}"/>'
+    - name: Update MID Server User
+      win_lineinfile:
+        path: c:\MIDServer\{{mid_server_name}}\agent\config.xml
+        regexp: '    <parameter name="mid.instance.username" value="mid.server"/>'
+        line:  '    <parameter name="mid.instance.username" value="{{mid_server_user}}"/>'
     - name: Deploy MID Server Wrapper-Override.Conf
       win_copy:
         src: files/mid_wrapper-override.tmp
