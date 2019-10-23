@@ -1,5 +1,5 @@
-- name: Configure Site Depot CMS WWW Server
-  hosts: all
+- name: Configure Wordpress
+  hosts: "{{server_ip}}"
   tasks:
   - name: Deploy Wordpress Config
     template:
