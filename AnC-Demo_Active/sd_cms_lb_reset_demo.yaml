@@ -1,5 +1,5 @@
 - name: Reset Demo for CMS Loadbalancer
-  hosts: all
+  hosts: "{{server_ip}}"
   tasks:
   - name: Remove CMS.CONF file
     command: rm -rf /etc/httpd/conf.d/{{lab_code}}-www.conf
