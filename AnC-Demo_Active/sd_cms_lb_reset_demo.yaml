@@ -1,12 +1,12 @@
 - name: Reset Demo for CMS Loadbalancer
   hosts: "{{server_ip}}"
   tasks:
-    become: yes
-    become_method: sudo
   - name: Remove WWW.CONF file
     file:
       path: /etc/httpd/conf.d/{{lab_code}}-www.conf
       state: absent
+    become: yes
+    become_method: sudo
   - name: Restart HTTPD
     service:
       name: httpd
