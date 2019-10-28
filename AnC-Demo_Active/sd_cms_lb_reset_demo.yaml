@@ -2,8 +2,9 @@
   hosts: "{{server_ip}}"
   tasks:
   - name: Remove CMS.CONF file
-    command: rm -rf /etc/httpd/conf.d/{{lab_code}}-www.conf
-    register: removefile
+    file:
+      path: /etc/httpd/conf.d/{{lab_code}}-www.conf
+      state: absent
   - name: Restart HTTPD
     service:
       name: httpd
