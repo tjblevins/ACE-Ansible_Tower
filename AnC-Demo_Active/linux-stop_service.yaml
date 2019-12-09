@@ -6,3 +6,5 @@
       service:
         name: "{{service}}"
         state: stopped
+        become: yes
+        
