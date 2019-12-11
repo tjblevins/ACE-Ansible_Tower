@@ -1,0 +1,22 @@
+- name: Remove A Record to Route 53 Zone in AWS
+  hosts: localhost
+  gather_facts: false
+  vars:
+    type: A
+    state: absent
+  tasks:
+    - name: Get A Record Info
+      route53:
+        state: get
+        zone: "{{zone}}"
+        record: "{{host}}.{{zone}}"
+        type: "{{type}}"
+      register: rec
+    - name: Delete A Record Info
+      route53:
+        state: "{{state}}"
+        zone: "{{zone}}"
+        record: "{{ rec.set.record }}"
+        type: "{{ rec.set.type }}"
+        ttl: "{{ rec.set.ttl }}"
+        value: "{{ rec.set.value }}"
