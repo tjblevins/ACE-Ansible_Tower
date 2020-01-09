@@ -5,5 +5,3 @@
       service:
         name: "{{service}}"
         state: stopped
-
-        
