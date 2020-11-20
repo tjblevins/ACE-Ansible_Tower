@@ -1,0 +1,13 @@
+- name: Change EC2 Instance State
+  hosts: localhost
+  gather_facts: false
+  vars:
+    region: "{{region}}"
+  tasks:
+    - name: Change State
+      ec2:
+        instance_ids: "{{itemid}}"
+        region: "{{region}}"
+        state: stopped
+        wait: True
+ 
