@@ -8,6 +8,6 @@
       ec2:
         instance_ids: "{{itemid}}"
         region: "{{region}}"
-        state: stopped
+        state: "{{state}}"
         wait: True
  
