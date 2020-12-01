@@ -16,5 +16,5 @@
       login_password: "{{password}}"
       login_host: localhost
       state: import
-      name: cms
+      name: "{{schema}}"
       target: /root/youtube.sql
