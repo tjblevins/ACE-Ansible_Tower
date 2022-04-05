@@ -1,5 +1,5 @@
 - name: Start Linux Service
-  hosts: "{{host_ip}}"
+  hosts: "{{host}}"
   tasks:
     - name: Starting Service
       service:

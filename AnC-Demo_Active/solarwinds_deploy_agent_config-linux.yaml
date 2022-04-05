@@ -1,0 +1,5 @@
+- name: Configure Solarwinds Agent
+  hosts: "{{server_ip}}"
+  tasks:
+  - name: Deploy Configuration Script
+    script: files/driver.sh

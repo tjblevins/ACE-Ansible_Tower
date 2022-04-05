@@ -1,0 +1,10 @@
+- name: ServiceNow Trigger Rediscover (Requires Custom ServiceNow API)
+  hosts: all
+  tasks:
+    - name: Trigger ServiceNow Discovery
+      win_uri:
+        url: https://{{discovery_instance}}.service-now.com/api/snc/restfulworkflow/ITOMQuickDiscover?u_ip={{ansible_ip_addresses[0]}}
+        method: POST
+        user: websrvc
+        password: Aw3s0m34321
+        force_basic_auth: yes

@@ -13,11 +13,14 @@
       visible_name: "{{host_name}}"
       host_groups:
         - Site Depot CMS - {{lab_code}}
+        - Linux servers
       link_templates:
-        - Template App HTTP Service
-        - Template App SSH Service
-        - Template ICMP Ping
-        - Template OS Linux
+#        - Apache by HTTP
+        - HTTP Service
+        - Apache by Zabbix agent
+        - SSH Service
+        - ICMP Ping
+        - Linux by Zabbix agent
       status: enabled
       state: present
       inventory_mode: automatic

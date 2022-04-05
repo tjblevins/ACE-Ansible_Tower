@@ -1,0 +1,6 @@
+[mysql]
+user=CHUSER
+password=CHPASS
+[mysqladmin]
+user=CHUSER
+password=CHPASS

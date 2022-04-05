@@ -1,0 +1,16 @@
+- name: Configure NRPE Client for Nagios Server
+  hosts: "{{server_ip}}"
+  tasks:
+  - name: Deploy NRPE Template
+    template:
+      src: files/nagios-nrpe-linux.tmp
+      dest: /usr/local/nagios/etc/nrpe.cfg
+  - name: Update NAGIOSSERVER
+    replace:
+      path: /usr/local/nagios/etc/nrpe.cfg
+      regexp: "NAGIOSSERVER"
+      replace: "{{nagios_ip}}"
+  - name: Restart NRPE
+    service:
+      name: nrpe
+      state: restarted

@@ -1,0 +1,15 @@
+- name: Site Depot-CMS-DB-Initial Config 
+  hosts: all
+  tasks:
+    - name: Fix userparameter_mysql.conf
+      template:
+        src: files/userparameter_mysql.tmp
+        dest: /etc/zabbix/zabbix_agentd.d/userparameter_mysql.conf
+- name: Rename CMS DB Server
+  import_playbook: linux-rename_server.yaml
+- name: Trigger ServiceNow Discovery
+  import_playbook: servicenow-trigger_discovery.yaml
+  vars:
+    host_ip: "{{ansible_default_ipv4.address}}"
+- name: Add Server to Zabbix
+  import_playbook: zabbix_deploy_agent_config.yaml

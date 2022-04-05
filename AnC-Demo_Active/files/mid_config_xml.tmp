@@ -23,7 +23,7 @@
 
     <!-- Tells the MID server where to contact its associated ServiceNow instance.  Edit 
          this value to provide the URL of your organization's ServiceNow instance. -->
-    <parameter name="url" value="https://INSTANCE_NAME.service-now.com/"/>
+    <parameter name="url" value="http://INSTANCE_NAME.service-now.com/"/>
 
     <!-- If your ServiceNow instance has authentication enabled (the normal case), set 
          these parameters to define the user name and password the MID server will use 

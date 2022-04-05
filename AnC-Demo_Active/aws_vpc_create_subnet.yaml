@@ -1,0 +1,13 @@
+- name: Create Site Depot Demo Subnet
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Create subnet for database servers
+      ec2_vpc_subnet:
+        state: present
+        region: "{{region}}"
+        vpc_id: "{{vpcid}}"
+        cidr: "{{cidr}}"
+        map_public: yes
+        tags:
+          Name: "{{name}}"

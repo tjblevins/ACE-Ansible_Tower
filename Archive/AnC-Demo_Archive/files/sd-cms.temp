@@ -1,0 +1,22 @@
+<VirtualHost *:80>
+  ServerName cms.LABCODE.acmesitedepot.com
+
+  <IfModule mod_proxy_ajp.c>
+      ProxyRequests Off
+      ProxyTimeout 300
+      ProxyPreserveHost On
+      ProxyVia On
+
+      <Proxy balancer://cms.LABCODE>
+        BalancerMember http://CMSLBIP:80
+        ProxySet lbmethod=bybusyness
+      </Proxy>
+      <Location />
+        Order allow,deny
+        Allow from all
+        ProxyPass balancer://cms.LABCODE/ stickysession=JSESSIONID
+      </Location>
+
+  </IfModule>
+</VirtualHost>
+

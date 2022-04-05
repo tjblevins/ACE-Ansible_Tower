@@ -1,0 +1,10 @@
+- name: delete host db Nagios
+  hosts: "{{nagios_host}}"
+  tasks:
+  - name: Remove HOST DB.CONF file
+    command: rm -rf /usr/local/nagios/etc/servers/linux/ace-{{lab_code}}-db.cfg
+    register: removefile
+  - name: Restart Nagios
+    service:
+      name: nagios
+      state: restarted

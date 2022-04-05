@@ -1,5 +1,5 @@
 - name: Configure Wordpress
-  hosts: "{{server_ip}}"
+  hosts: "{{host}}"
   tasks:
   - name: Deploy Wordpress Config
     template:

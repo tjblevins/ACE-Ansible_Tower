@@ -1,5 +1,5 @@
 - name: Update Apache Proxy for New {{service_name}} Site
-  hosts: "{{server_ip}}"
+  hosts: "{{host}}"
   tasks:
   - name: Deploy Virtual Host Template
     template:

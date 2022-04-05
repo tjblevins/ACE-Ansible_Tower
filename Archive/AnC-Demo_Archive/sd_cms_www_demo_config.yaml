@@ -1,0 +1,9 @@
+- name: Site Depot CMS Web Server Configuration
+  hosts: all
+  become: yes
+  become_method: sudo
+  tasks:
+- name: Deploy Zabbix Agent Config
+  import_playbook: zabbix_deploy_agent_config.yaml
+- name: Trigger CMS Webserver Deployment
+  import_playbook: servicenow-trigger_ITOMCMSDeploy.yaml

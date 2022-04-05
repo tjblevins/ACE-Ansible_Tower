@@ -1,0 +1,12 @@
+- name: Deploy Shared MID Servers for New Instance
+  hosts: all
+  gather_facts: false
+  tasks:
+- name: Install MID on ACE-MID-Shared
+  import_playbook: servicenow-install_mid_server_miduser.yaml
+  vars:
+    instancename: "{{instancename}}"
+    install_dir: "{{install_dir}}"
+    mid_server_ip: "{{mid_server_ip}}"
+    mid_server_name: "{{midname}}_{{instancename}}"
+    mid_server_user: "{{miduser}}"

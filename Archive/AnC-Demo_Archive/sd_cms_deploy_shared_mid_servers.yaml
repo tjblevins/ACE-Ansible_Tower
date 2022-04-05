@@ -1,0 +1,25 @@
+- name: Deploy Shared MID Servers for New Instance
+  hosts: all
+  gather_facts: false
+  tasks:
+- name: Install MID on AnC-MSP-MID1
+  import_playbook: servicenow-install_mid_server.yaml
+  vars:
+    instancename: "{{instancename}}"
+    install_dir: Install-K
+    mid_server_ip: 172.32.251.65
+    mid_server_name: AnC-MSP-MID1_{{instancename}}
+- name: Install MID on AnC-SD-MID1
+  import_playbook: servicenow-install_mid_server.yaml
+  vars:
+    instancename: "{{instancename}}"
+    install_dir: Install-K
+    mid_server_ip: 172.32.1.104
+    mid_server_name: AnC-SD-MID1_{{instancename}}
+- name: Install MID on AnC-SD-MID2
+  import_playbook: servicenow-install_mid_server.yaml
+  vars:
+    instancename: "{{instancename}}"
+    install_dir: Install-K
+    mid_server_ip: 172.32.1.144
+    mid_server_name: AnC-SD-MID2_{{instancename}}

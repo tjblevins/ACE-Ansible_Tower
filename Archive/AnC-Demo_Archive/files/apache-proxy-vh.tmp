@@ -1,0 +1,22 @@
+<VirtualHost *:80>
+  ServerName SERVICE.LABCODE.DOMAIN
+
+  <IfModule mod_proxy_ajp.c>
+      ProxyRequests Off
+      ProxyTimeout 300
+      ProxyPreserveHost On
+      ProxyVia On
+
+      <Proxy balancer://SERVICE.LABCODE>
+        BalancerMember http://TARGETIP:80
+        ProxySet lbmethod=bybusyness
+      </Proxy>
+      <Location />
+        Order allow,deny
+        Allow from all
+        ProxyPass balancer://SERVICE.LABCODE/ stickysession=JSESSIONID
+      </Location>
+
+  </IfModule>
+</VirtualHost>
+

@@ -1,0 +1,8 @@
+- name: Rename Windows Server
+  hosts: "{{server_ip}}"
+  gather_facts: false
+  tasks:
+    - name: Rename Server
+      win_shell: Rename-Computer -ComputerName . -NewName ace{{lab_code}}{{server_role}}
+    - name: Reboot
+      win_reboot:

@@ -1,0 +1,34 @@
+- name: Configure Wordpress
+  hosts: "{{server_ip}}"
+  tasks:
+  - name: Deploy Wordpress Config
+    template:
+      src: files/wp-config.temp
+      dest: /var/www/html/wp-config.php
+      owner: apache
+      group: apache
+      mode: 0644
+  - name: Update DBNAME
+    replace:
+      path: /var/www/html/wp-config.php
+      regexp: "DBNAME"
+      replace: "{{db_dbname}}"
+  - name: Update DBUSER
+    replace:
+      path: /var/www/html/wp-config.php
+      regexp: "DBUSER"
+      replace: "{{db_user}}"
+  - name: Update DBPASS
+    replace:
+      path: /var/www/html/wp-config.php
+      regexp: "DBPASS"
+      replace: "{{db_pass}}"
+  - name: Update DBIP
+    replace:
+      path: /var/www/html/wp-config.php
+      regexp: "DBIP"
+      replace: "{{db_ip}}"
+  - name: Restart HTTPD
+    service:
+      name: httpd
+      state: restarted

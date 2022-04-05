@@ -2,10 +2,8 @@
   hosts: "{{mid_server_ip}}"
   gather_facts: false
   tasks:
-    - name: Create MID Server Service Directory and Copy Agent Folder
+    - name: Create MID Server Service Directory
       win_shell: copy-item c:\MIDServer\{{install_dir}}\agent -destination c:\MIDServer\{{mid_server_name}}\agent -Recurse
-    - name: 
-      win_shell: copy-item c:\MIDServer\{{install_dir}}\META-INF -destination c:\MIDServer\{{mid_server_name}}\META-INF -Recurse
     - name: Deploy MID Server Config.XML
       win_copy:
         src: files/mid_config_xml.tmp
@@ -35,13 +33,12 @@
         regexp: '^wrapper.displayname=CHANGEDISPLAY'
         line:  ' wrapper.displayname=snc_mid_{{mid_server_name}}'
     - name: Create MID Server Service
-      win_shell: .\InstallMID-NT.bat
+      win_shell: .\start.bat
       args:
-        chdir:  c:\MIDServer\{{mid_server_name}}\agent\bin
+        chdir:  c:\MIDServer\{{mid_server_name}}\agent
     - name: set the log on user to a local account
       win_service:
         name: snc_mid_{{mid_server_name}}
-        state: started
+        state: restarted
         username: .\mid.server
         password: Aw3s0m31
-

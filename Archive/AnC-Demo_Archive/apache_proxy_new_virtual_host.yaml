@@ -1,0 +1,31 @@
+- name: Update Apache Proxy for New {{service_name}} Site
+  hosts: "{{server_ip}}"
+  tasks:
+  - name: Deploy Virtual Host Template
+    template:
+      src: files/apache-proxy-vh.tmp
+      dest: /etc/httpd/conf.d/{{lab_code}}-{{service_name}}.conf
+  - name: Update LABCODE
+    replace:
+      path: /etc/httpd/conf.d/{{lab_code}}-{{service_name}}.conf
+      regexp: "LABCODE"
+      replace: "{{lab_code}}"
+  - name: Update TARGETIP
+    replace:
+      path: /etc/httpd/conf.d/{{lab_code}}-{{service_name}}.conf
+      regexp: "TARGETIP"
+      replace: "{{target_ip}}"
+  - name: Update SERVICE
+    replace:
+      path: /etc/httpd/conf.d/{{lab_code}}-{{service_name}}.conf
+      regexp: "SERVICE"
+      replace: "{{service_name}}"
+  - name: Update DOMAIN
+    replace:
+      path: /etc/httpd/conf.d/{{lab_code}}-{{service_name}}.conf
+      regexp: "DOMAIN"
+      replace: "{{domain}}"
+  - name: Restart HTTPD
+    service:
+      name: httpd
+      state: restarted

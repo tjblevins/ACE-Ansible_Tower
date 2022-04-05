@@ -1,0 +1,10 @@
+- name: delete hostgroups Nagios
+  hosts: all
+  tasks:
+  - name: Remove HOSTGROUPS.CONF file
+    command: rm -rf /usr/local/nagios/etc/servers/hostgroups/sd-{{lab_code}}.cfg
+    register: removefile
+  - name: Restart Nagios
+    service:
+      name: nagios
+      state: restarted

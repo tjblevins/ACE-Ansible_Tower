@@ -1,0 +1,21 @@
+- name: Repair Nagios Volitile FileSystems after Reboot
+  hosts: all
+  tasks:
+    - name:  Add Spool Dir
+      file:
+        path: /usr/local/nagios/var/spool/checkresults
+        state: directory
+        owner: nagios
+        group: nagios
+        mode: 0775
+    - name:  Add RW Dir
+      file:
+        path: /usr/local/nagios/var/rw
+        state: directory
+        owner: nagios
+        group: nagios
+        mode: 0775
+    - name: Restart Nagios
+      service:
+        name: nagios
+        state: restarted

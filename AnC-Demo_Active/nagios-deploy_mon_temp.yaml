@@ -1,5 +1,5 @@
 - name: Activate Nagios Monitoring - Linux Server
-  hosts: all
+  hosts: "{{nagios_host}}"
   gather_facts: false
   become: yes
   tasks:

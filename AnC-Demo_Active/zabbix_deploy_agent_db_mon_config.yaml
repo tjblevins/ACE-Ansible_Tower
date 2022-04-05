@@ -1,0 +1,27 @@
+- name: Update Zabbix Config For Monitoring DBs and Restart Service
+  hosts: "{{host}}"
+  tasks:
+  - name: Push template_db_mysql.conf
+    template:
+      src: files/template_db_mysql.conf
+      dest: /etc/zabbix/zabbix_agentd.d/template_db_mysql.conf
+  - name: Push Configure .my.cnf
+    template:
+      src: files/.my.cnf.tmp
+      dest: /etc/zabbix/.my.cnf
+  - name: Update CHUSER
+    replace:
+      path: /etc/zabbix/.my.cnf
+      regexp: "CHUSER"
+      replace: "{{db_user}}"
+  - name: Update CHPASS
+    replace:
+      path: /etc/zabbix/.my.cnf
+      regexp: "CHPASS"
+      replace: "{{db_pass}}"
+  - name: Remove Old MySQL Mon Conf
+    command: rm -rf /etc/zabbix/zabbix_agentd.d/userparameter_mysql.conf
+  - name: Restart Zabbix
+    service:
+      name: zabbix-agent
+      state: restarted

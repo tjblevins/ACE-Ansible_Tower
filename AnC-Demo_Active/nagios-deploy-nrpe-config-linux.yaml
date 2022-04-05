@@ -1,5 +1,5 @@
 - name: Configure NRPE Client for Nagios Server
-  hosts: "{{server_ip}}"
+  hosts: "{{host}}"
   tasks:
   - name: Deploy NRPE Template
     template:

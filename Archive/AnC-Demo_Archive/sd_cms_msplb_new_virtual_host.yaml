@@ -1,0 +1,7 @@
+- name: Site Depot MSP Load Balancer - New Virtual Host
+  hosts: all
+  tasks:
+- name: Deploy New Virtual Host Config
+  import_playbook: apache_proxy_new_virtual_host.yaml
+- name: Update Local HOSTS file
+  import_playbook: sd_cms_msplb_update_hosts_file.yaml

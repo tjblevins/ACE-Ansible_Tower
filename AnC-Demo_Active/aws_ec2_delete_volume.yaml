@@ -1,0 +1,9 @@
+- name: Volumes delete AWS
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Volumes delete AWS
+      ec2_vol:
+        region: "{{region}}"
+        id: "{{vol_id}}"
+        state: absent

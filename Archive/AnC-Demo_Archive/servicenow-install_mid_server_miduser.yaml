@@ -1,0 +1,49 @@
+- name: Install MID Server
+  hosts: "{{mid_server_ip}}"
+  gather_facts: false
+  tasks:
+    - name: Create MID Server Service Directory
+      win_shell: copy-item c:\MIDServer\{{install_dir}}\agent -destination c:\MIDServer\{{mid_server_name}}\agent -Recurse
+    - name: Deploy MID Server Config.XML
+      win_copy:
+        src: files/mid_config_xml.tmp
+        dest: c:\MIDServer\{{mid_server_name}}\agent\config.xml
+    - name: Update Instance Name
+      win_lineinfile:
+        path: c:\MIDServer\{{mid_server_name}}\agent\config.xml
+        regexp: '    <parameter name="url" value="http://INSTANCE_NAME.service-now.com/"/>'
+        line:  '    <parameter name="url" value="http://{{instancename}}.service-now.com/"/>'
+    - name: Update MID Server Name
+      win_lineinfile:
+        path: c:\MIDServer\{{mid_server_name}}\agent\config.xml
+        regexp: 'SERVER_NAME'
+        line:  '    <parameter name="name" value="{{mid_server_name}}"/>'
+    - name: Update MID Server User
+      win_lineinfile:
+        path: c:\MIDServer\{{mid_server_name}}\agent\config.xml
+        regexp: '    <parameter name="mid.instance.username" value="mid.server"/>'
+        line:  '    <parameter name="mid.instance.username" value="{{mid_server_user}}"/>'
+    - name: Deploy MID Server Wrapper-Override.Conf
+      win_copy:
+        src: files/mid_wrapper-override.tmp
+        dest: c:\MIDServer\{{mid_server_name}}\agent\conf\wrapper-override.conf
+    - name: Update MID Service Wrapper Name
+      win_lineinfile:
+        path: c:\MIDServer\{{mid_server_name}}\agent\conf\wrapper-override.conf
+        regexp: '^wrapper.name=CHANGENAME'
+        line:  'wrapper.name=snc_mid_{{mid_server_name}}'
+    - name: Update MID Service Wrapper Display Name
+      win_lineinfile:
+        path: c:\MIDServer\{{mid_server_name}}\agent\conf\wrapper-override.conf
+        regexp: '^wrapper.displayname=CHANGEDISPLAY'
+        line:  ' wrapper.displayname=snc_mid_{{mid_server_name}}'
+    - name: Create MID Server Service
+      win_shell: .\start.bat
+      args:
+        chdir:  c:\MIDServer\{{mid_server_name}}\agent
+    - name: set the log on user to a local account
+      win_service:
+        name: snc_mid_{{mid_server_name}}
+        state: restarted
+        username: .\mid.server
+        password: Aw3s0m31

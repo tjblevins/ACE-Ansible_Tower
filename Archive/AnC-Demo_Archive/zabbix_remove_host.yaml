@@ -1,0 +1,13 @@
+- name: Update Zabbix Config and Restart Service
+  hosts: localhost
+  gather_facts: false
+  become: no
+  tasks:
+  - name: Create a new host or update an existing host's info
+    local_action:
+      module: zabbix_host
+      server_url: http://{{zabbix_ip}}/zabbix/
+      login_user: "{{zabbix_user}}"
+      login_password: "{{zabbix_pass}}"
+      host_name: "{{host_name}}"
+      state: absent

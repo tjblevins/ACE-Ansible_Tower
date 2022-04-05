@@ -1,0 +1,21 @@
+- name: Update Apache Proxy for New CMS Site
+  hosts: all
+  tasks:
+  - name: Deploy Virtual Host Template
+    template:
+      src: files/cms.temp
+      dest: /etc/httpd/conf.d/{{lab_code}}-cms.conf
+  - name: Update LABCODE
+    replace:
+      path: /etc/httpd/conf.d/{{lab_code}}-cms.conf
+      regexp: "LABCODE"
+      replace: "{{lab_code}}"
+  - name: Update CMSLBIP
+    replace:
+      path: /etc/httpd/conf.d/{{lab_code}}-cms.conf
+      regexp: "WWWIP"
+      replace: "{{www_host}}"
+  - name: Restart HTTPD
+    service:
+      name: httpd
+      state: restarted

@@ -1,0 +1,14 @@
+- name: Create Host Group in Zabbix
+  hosts: "{{tower_ip}}"
+  gather_facts: false
+  become: no
+  tasks:
+  - name: Create a new host or update an existing host's info
+    local_action:
+      module: zabbix_group
+      server_url: http://{{zabbix_ip}}/zabbix/
+      login_user: "{{zabbix_user}}"
+      login_password: "{{zabbix_pass}}"
+      state: present
+      host_groups:
+        - Site Depot CMS - {{lab_code}}

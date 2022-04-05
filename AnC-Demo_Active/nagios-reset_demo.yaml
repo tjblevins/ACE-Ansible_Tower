@@ -1,5 +1,5 @@
 - name: Reset Demo in Nagios for WWW Server
-  hosts: all
+  hosts: "{{host}}"
   tasks:
   - name: Remove WWW CMS.CONF file
     command: rm -rf /usr/local/nagios/etc/servers/linux/ace-{{lab_code}}-www.cfg

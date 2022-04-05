@@ -1,0 +1,28 @@
+- name: Activate Nagios Monitoring - Linux Server
+  hosts: all
+  gather_facts: false
+  become: yes
+  tasks:
+  - name: Deploy Nagios Template
+    template:
+      src: files/nagios-{{server_role}}.tmp
+      dest: /usr/local/nagios/etc/servers/linux/ace-{{lab_code}}-{{server_role}}.cfg
+  - name: Update CHANGENAME
+    replace:
+      path: /usr/local/nagios/etc/servers/linux/ace-{{lab_code}}-{{server_role}}.cfg
+      regexp: "CHANGENAME"
+      replace: "{{host_name}}"
+  - name: Update CHANGEIP
+    replace:
+      path: /usr/local/nagios/etc/servers/linux/ace-{{lab_code}}-{{server_role}}.cfg
+      regexp: "CHANGEIP"
+      replace: "{{host_ip}}"
+  - name: Update CHANGEGROUP
+    replace:
+      path: /usr/local/nagios/etc/servers/linux/ace-{{lab_code}}-{{server_role}}.cfg
+      regexp: "CHANGEGROUP"
+      replace: "{{host_group}}"
+  - name: Restart Nagios
+    service:
+      name: nagios
+      state: restarted

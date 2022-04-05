@@ -1,0 +1,9 @@
+- name: Updated Hosts file on CMS LB Server
+  hosts: all
+  tasks:
+  - name: Insert WWW Server Host Record
+    lineinfile:
+      path: /etc/hosts
+      regexp: '^172.'
+      insertafter: '^172.32.'
+      line: '{{www_ip}}		{{www_host}}'

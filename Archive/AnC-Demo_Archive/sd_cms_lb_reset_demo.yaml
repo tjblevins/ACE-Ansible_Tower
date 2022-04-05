@@ -1,0 +1,24 @@
+- name: Reset Demo for CMS Loadbalancer
+  hosts: "{{server_ip}}"
+  tasks:
+  - name: Remove WWW.CONF file
+    file:
+      path: /etc/httpd/conf.d/{{lab_code}}-www.conf
+      state: absent
+    become: yes
+    become_method: sudo
+  - name: Restart HTTPD
+    service:
+      name: httpd
+      state: restarted
+    become: yes
+    become_method: sudo
+  - name: Roll Back Hosts File
+    template:
+      src: files/cms-lb-hosts.tmp
+      dest: /etc/hosts
+      owner: root
+      group: root
+      mode: 0644
+    become: yes
+    become_method: sudo

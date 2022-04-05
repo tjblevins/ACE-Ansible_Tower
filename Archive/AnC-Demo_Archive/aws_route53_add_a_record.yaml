@@ -1,0 +1,17 @@
+- name: Add A Record to Route 53 Zone in AWS
+  hosts: localhost
+  gather_facts: false
+  vars:
+    type: A
+    ttl: 10
+    state: present
+  tasks:
+    - name: Adding A Record
+      route53:
+        state: "{{state}}"
+        zone: "{{zone}}"
+        record: "{{host}}.{{zone}}"
+        type: "{{type}}"
+        ttl: "{{ttl}}"
+        value: "{{target_ip}}"
+        wait: yes

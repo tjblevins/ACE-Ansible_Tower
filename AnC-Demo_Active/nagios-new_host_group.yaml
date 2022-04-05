@@ -1,5 +1,5 @@
 - name: Create Nagios Host Group
-  hosts: all
+  hosts: "{{nagios_host}}"
   tasks:
   - name: Deploy Nagios Host Group Template
     template:

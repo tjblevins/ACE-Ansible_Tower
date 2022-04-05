@@ -1,9 +1,9 @@
 - name: Update Youtube Video on Wordpress
-  hosts: "{{server_ip}}"
+  hosts: "{{host}}"
   tasks:
   - name: Push Template SQL Script
     template:
-      src: files/site_config.tmp
+      src: files/site_config-pipe-acndev01.tmp
       dest: /root/youtube.sql
   - name: Update URL in SQL Script
     replace:

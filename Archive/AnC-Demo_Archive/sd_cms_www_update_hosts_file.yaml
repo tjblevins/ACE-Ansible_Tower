@@ -1,0 +1,9 @@
+- name: Updated Hosts file on WWW Server
+  hosts: all
+  tasks:
+  - name: Insert DB Server Host Record
+    lineinfile:
+      path: /etc/hosts
+      regexp: '^172.'
+      insertafter: '^172.32.2.43'
+      line: '{{db_ip}}		{{db_host}}'

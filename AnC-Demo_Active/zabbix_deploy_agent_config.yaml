@@ -1,5 +1,5 @@
 - name: Update Zabbix Config and Restart Service
-  hosts: "{{server_ip}}"
+  hosts: "{{host}}"
   tasks:
   - name: Update Zabbix Config
     template:

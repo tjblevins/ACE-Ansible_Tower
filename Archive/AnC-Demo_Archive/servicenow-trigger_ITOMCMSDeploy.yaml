@@ -1,0 +1,12 @@
+- name: Trigger ServiceNow Orchestration
+  hosts: all
+  become: yes
+  become_method: sudo
+  tasks:
+    - name: Deploy Site Demo CMS Configuration
+      uri:
+        url: https://{{discovery_instance}}.service-now.com/api/snc/restfulworkflow/ITOMCMSDeploy?u_hostip={{ansible_default_ipv4.address}}&u_hostname={{ansible_hostname}}
+        method: POST
+        user: websrvc
+        password: Aw3s0m34321
+        force_basic_auth: yes

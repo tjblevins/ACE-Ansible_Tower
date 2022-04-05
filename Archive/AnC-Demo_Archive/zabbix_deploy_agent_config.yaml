@@ -1,0 +1,16 @@
+- name: Update Zabbix Config and Restart Service
+  hosts: "{{server_ip}}"
+  tasks:
+  - name: Update Zabbix Config
+    template:
+      src: files/zabbix_agentd.conf
+      dest: /etc/zabbix/zabbix_agentd.conf
+  - name: Update ZABBIXSERVER
+    replace:
+      path: /etc/zabbix/zabbix_agentd.conf
+      regexp: "ZABBIXSERVER"
+      replace: "{{zabbix_ip}}"
+  - name: Restart Zabbix
+    service:
+      name: zabbix-agent
+      state: restarted

@@ -1,0 +1,15 @@
+- name: Add New Trap Destination
+  hosts: all
+  tasks:
+    - name: Update snmp_trap_relay.sh
+      lineinfile:
+        path: /usr/local/nagios/bin/snmp_trap_relay.sh
+        line: '/usr/bin/snmptrap -v 2c -c public  {{trap_ip}} '''' NAGIOS-NOTIFY-MIB::nSvcEvent nSvcHostname s "$HOSTNAME" nHostAlias s "$SERVICENOTES" nSvcDesc s "$SERVICEDESC" nSvcStateID i $SERVICESTATEID nSvcOutput s "$SERVICEOUTPUT"'
+    - name: Update Return to snmp_trap_relay.sh
+      lineinfile:
+        path: /usr/local/nagios/bin/snmp_trap_relay.sh
+        line: ' '
+    - name: Update Return to snmp_trap_relay.sh
+      lineinfile:
+        path: /usr/local/nagios/bin/snmp_trap_relay.sh
+        line: ' '

@@ -1,9 +1,9 @@
 - name: Rename Linux Server
-  hosts: "{{server_ip}}"
+  hosts: "{{host}}"
   tasks:
     - name: Changing Name
       hostname: 
-        name: pds-{{lab_code}}-{{server_role}}
+        name: acnaiops-{{lab_code}}-{{server_role}}
     - name: Setting Name Preservation
       lineinfile:
         path: /etc/cloud/cloud.cfg
@@ -17,6 +17,6 @@
       ignore_errors: true
     - name: Wait for Reboot
       pause:
-        seconds: 140
+        seconds: 180
     - name: Test Server Status
       ping:

@@ -1,0 +1,23 @@
+- name: Change EC2 Instance Type 
+  hosts: localhost
+  gather_facts: false
+  vars:
+    region: us-west-2
+  tasks:
+    - name: Stop Instance
+      ec2:
+        instance_ids: "{{itemid}}"
+        region: "{{region}}"
+        state: stopped
+        wait: True
+    - name: Update Instance Type
+      command: /root/.local/bin/aws ec2 modify-instance-attribute --region {{region}} --instance-id {{itemid}} --instance-type {{type}}
+      async: 1
+      poll: 0
+    - name: Start Instance
+      ec2:
+        instance_ids: "{{itemid}}"
+        region: "{{region}}"
+        instance_type: "{{type}}"
+        state: running
+        wait: True

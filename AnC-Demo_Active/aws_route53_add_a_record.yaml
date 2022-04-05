@@ -3,7 +3,7 @@
   gather_facts: false
   vars:
     type: A
-    ttl: 10
+    ttl: 60
     state: present
   tasks:
     - name: Adding A Record
